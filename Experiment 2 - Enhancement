@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Experiment 2 - Images and Links</title>
+</head>
+
+<body>
+
+    <h1>Experiment 2 - Images and Links</h1>
+    <h2>Images</h2>
+
+    <a href="https://www.instagram.com/sea/?hl=en">
+    <img src="sea.jpg" alt="sea">
+    </a>
+    
+    <h2>Links</h2>
+    <p>Follow me on</p> <a href="https://en.wikipedia.org/wiki/Sea" target="new"></a>
+    <a href="../index.html">Sea</a>
+</body>
+
+</html>
+
+
+
+
