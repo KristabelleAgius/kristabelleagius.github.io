@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,25 +12,28 @@
     <form>
         <h1>Task 4: Login Exercise</h1>
         <h2>Login</h2>
-        <label for="email"> Email:</label>
-        <input id="email" name="email" type="email" required>
 
-        <label for="password">Password:</label>
-        <input id="password" name="password" type="password" maxlength="16" required>
-        <input type="submit">
+        <div>
+            <label for="email"> Email:</label>
+            <input id="email" name="email" type="email" required>
 
-        <p><input type="radio" id="Maybe" name="fav_language" value="Maybe">
+            <label for="password">Password:</label>
+            <input id="password" name="password" type="password" maxlength="16" required>
+            <input type="submit">
+        </div>
+
+        <div><input type="radio" id="Maybe" name="fav_language" value="Maybe">
             <label for="Maybe">Maybe</label><br>
-        </p>
+        </div>
 
-        <p> <input type="checkbox" id="Yes" name="Yes" value="Yes">
+        <div> <input type="checkbox" id="Yes" name="Yes" value="Yes">
             <label for="Yes"> Yes</label><br>
 
             <input type="checkbox" id="No" name="No" value="No">
             <label for="No"> No</label><br>
-        </p>
+        </div>
 
-        <p>
+        <div>
             <label for="cars">Choose a style:</label>
 
             <select name="cars" id="cars">
@@ -37,15 +41,14 @@
                 <option value="Pop ">Pop</option>
                 <option value="Medieval">Medieval</option>
             </select>
-        </p>
+        </div>
 
-        <p>
+        <div>
             <label for="w3review"> Comment:</label>
-
             <textarea id="w3review" name="Write here" rows="4" cols="50">
-Write here
-</textarea>
-        </p>
+            Write here
+            </textarea>
+        </div>
 
 
     </form>
