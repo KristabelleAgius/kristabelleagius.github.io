@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4: Login Exercise</title>
+</head>
+
+<body>
+    <form>
+        <h1>Task 4: Login Exercise</h1>
+        <h2>Login</h2>
+        <label for="email"> Email:</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password" maxlength="16" required>
+        <input type="submit">
+
+        <p><input type="radio" id="Maybe" name="fav_language" value="Maybe">
+            <label for="Maybe">Maybe</label><br>
+        </p>
+
+        <p> <input type="checkbox" id="Yes" name="Yes" value="Yes">
+            <label for="Yes"> Yes</label><br>
+
+            <input type="checkbox" id="No" name="No" value="No">
+            <label for="No"> No</label><br>
+        </p>
+
+        <p>
+            <label for="cars">Choose a style:</label>
+
+            <select name="cars" id="cars">
+                <option value="Baroque">Baroque</option>
+                <option value="Pop ">Pop</option>
+                <option value="Medieval">Medieval</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="w3review"> Comment:</label>
+
+            <textarea id="w3review" name="Write here" rows="4" cols="50">
+Write here
+</textarea>
+        </p>
+
+
+    </form>
+
+</body>
+
+</html>
