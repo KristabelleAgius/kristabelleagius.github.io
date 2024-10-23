@@ -2,18 +2,30 @@
 DO NOT ALTER THE EXISTING HTML TO DO THIS.  WRITE ONLY CSS! */
 
 /* Give the <body> element a background of #bdc3c7*/
+body {
+    background-color: #bdc3c7;
+}
+
 
 /* Make the <h1> element #9b59b6*/
-
+h1 {
+    color: #9b59b6;
+}
 
 /* Make all <h2> elements orange */
-
+h2 {
+    color: orange;
+}
 
 /* Make all <li> elements blue(pick your own hexadecimal blue)*/
-
+li {
+    color: #8fd3fe;
+}
 
 /*Change the background on every paragraph to be yellow*/
-
+p {
+    color: yellow;
+}
 
 /*Make all inputs have a 3px red border*/
 
