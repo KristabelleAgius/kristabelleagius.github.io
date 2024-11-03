@@ -23,7 +23,7 @@ h1 {
     position: absolute;
     left: 46.9%;
     text-align: center;
-    top: 35%;
+    top: 32%;
 }
 
 .vl3 {
@@ -33,7 +33,7 @@ h1 {
     position: absolute;
     left: 46.9%;
     text-align: center;
-    top: 50%;
+    top: 40%;
 }
 
 /* Vertical right lines */
@@ -54,7 +54,7 @@ h1 {
     position: absolute;
     right: 46.9%;
     text-align: center;
-    top: 35%;
+    top: 32%;
 }
 
 .line3 {
@@ -64,7 +64,7 @@ h1 {
     position: absolute;
     right: 46.9%;
     text-align: center;
-    top: 50%;
+    top: 40%;
 }
 
 /* Horizontal bottom borders */
@@ -75,7 +75,7 @@ h1 {
     position: absolute;
     left: 41%;
     text-align: center;
-    top: 35%;
+    top: 32%;
 }
 
 .v2 {
@@ -85,7 +85,7 @@ h1 {
     position: absolute;
     left: 41%;
     text-align: center;
-    top: 50%;
+    top: 40%;
 }
 
 .v3 {
@@ -95,7 +95,7 @@ h1 {
     position: absolute;
     left: 47%;
     text-align: center;
-    top: 35%;
+    top: 32%;
 }
 
 .v4 {
@@ -105,7 +105,7 @@ h1 {
     position: absolute;
     left: 47%;
     text-align: center;
-    top: 50%;
+    top: 40%;
 }
 
 .v5 {
@@ -115,7 +115,7 @@ h1 {
     position: absolute;
     right: 41%;
     text-align: center;
-    top: 50%;
+    top: 40%;
 }
 
 .v6 {
@@ -125,5 +125,5 @@ h1 {
     position: absolute;
     right: 41%;
     text-align: center;
-    top: 35%;
+    top: 32%;
 }
