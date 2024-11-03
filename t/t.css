@@ -1,0 +1,130 @@
+h1 {
+    width: 500px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.vl {
+    border-left: 6px solid black;
+    border-width: 1px;
+    height: 100px;
+    position: absolute;
+    left: 46.5%;
+    text-align: center;
+    top: 20%;
+}
+
+.vl2 {
+    border-left: 6px solid black;
+    border-width: 1px;
+    height: 100px;
+    position: absolute;
+    left: 46.5%;
+    text-align: center;
+    top: 45%;
+}
+
+
+.vl3 {
+    border-left: 6px solid black;
+    border-width: 1px;
+    height: 100px;
+    position: absolute;
+    left: 46.5%;
+    text-align: center;
+    top: 70%;
+}
+
+
+
+.line {
+    border-right: 6px solid black;
+    border-width: 1px;
+    height: 100px;
+    position: absolute;
+    right: 46.5%;
+    text-align: center;
+    top: 20%;
+}
+
+
+
+.line2 {
+    border-right: 6px solid black;
+    border-width: 1px;
+    height: 100px;
+    position: absolute;
+    right: 46.5%;
+    text-align: center;
+    top: 45%;
+}
+
+.line3 {
+    border-right: 6px solid black;
+    border-width: 1px;
+    height: 100px;
+    position: absolute;
+    right: 46.5%;
+    text-align: center;
+    top: 70%;
+}
+
+.v1 {
+    border-bottom: 6px solid black;
+    border-width: 1px;
+    width: 100px;
+    position: absolute;
+    left: 40.1%;
+    text-align: center;
+    top: 44%;
+}
+
+.v2 {
+    border-bottom: 6px solid black;
+    border-width: 1px;
+    width: 100px;
+    position: absolute;
+    left: 40.1%;
+    text-align: center;
+    top: 69%;
+}
+
+.v3 {
+    border-bottom: 6px solid black;
+    border-width: 1px;
+    width: 100px;
+    position: absolute;
+    left: 47.1%;
+    text-align: center;
+    top: 44%;
+}
+
+.v4 {
+    border-bottom: 6px solid black;
+    border-width: 1px;
+    width: 100px;
+    position: absolute;
+    left: 47.1%;
+    text-align: center;
+    top: 69%;
+}
+
+.v5 {
+    border-bottom: 6px solid black;
+    border-width: 1px;
+    width: 100px;
+    position: absolute;
+    right: 40.1%;
+    text-align: center;
+    top: 69%;
+}
+
+.v6 {
+    border-bottom: 6px solid black;
+    border-width: 1px;
+    width: 100px;
+    position: absolute;
+    right: 40.1%;
+    text-align: center;
+    top: 44%;
+}
