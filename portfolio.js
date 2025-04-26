@@ -1,3 +1,4 @@
+
 // Portfolio Filtering Functionality
 document.addEventListener('DOMContentLoaded', function () {
     const mainFilterButtons = document.querySelectorAll('.filter-btn.main-filter');
