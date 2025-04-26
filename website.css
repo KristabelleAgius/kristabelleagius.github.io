@@ -169,13 +169,22 @@ nav ul li a {
 }
 
 .about-image {
-    width: 40%;
-    height: 400px;
-    background-color: #ddd;
-    background-image: url('/api/placeholder/500/400');
-    background-size: cover;
-    background-position: center;
-    margin-right: 5rem;
+    width: 15%;
+    /* Reduced from 20% */
+    height: 300px;
+    /* Reduced from 400px */
+    margin-right: 8rem;
+
+}
+
+/* Add this new rule to constrain the image size */
+.about-image img {
+    max-width: 140%;
+    max-height: 140%;
+    object-fit: cover;
+    margin-top: -20%;
+
+    /* This maintains the image's aspect ratio */
 }
 
 .about-content {
