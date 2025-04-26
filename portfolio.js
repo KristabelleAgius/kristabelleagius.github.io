@@ -94,3 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize with Photography category selected
     document.querySelector('.filter-btn.main-filter[data-filter="photography"]').click();
 });
+
+
+
