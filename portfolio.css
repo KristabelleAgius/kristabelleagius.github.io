@@ -24,6 +24,25 @@
     gap: 0.8rem;
 }
 
+.photography-submenu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 800px;
+    transition: all 0.3s ease;
+    height: auto;
+    overflow: hidden;
+}
+
+.photography-submenu.hidden {
+    height: 0;
+    margin-bottom: 0;
+    opacity: 0;
+}
+
 .filter-btn {
     background-color: transparent;
     border: 1px solid #5E5648;
@@ -42,6 +61,19 @@
 
 .filter-btn.active {
     background-color: #5E5648;
+    color: #eeeae3;
+}
+
+.sub-filter {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    background-color: transparent;
+    border: 1px solid #8A7F6D;
+    color: #8A7F6D;
+}
+
+.sub-filter.active {
+    background-color: #8A7F6D;
     color: #eeeae3;
 }
 
@@ -69,15 +101,13 @@
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 66.67%;
+    padding-bottom: 130%;
     /* 2:3 aspect ratio */
     overflow: hidden;
 }
 
 .portfolio-image img {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
