@@ -69,12 +69,12 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
+    color: #5E5648;
     transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    color: #464035;
     transform: translateY(-3px);
 }
 
@@ -108,8 +108,8 @@ textarea:focus {
 }
 
 .submit-btn {
-    background-color: white;
-    color: #70a7d7;
+    background-color: #5E5648;
+    color: #eeeae3;
     border: none;
     padding: 0.8rem 2rem;
     font-size: 1rem;
@@ -120,7 +120,8 @@ textarea:focus {
 }
 
 .submit-btn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #eeeae3;
+    color: #5E5648;
     transform: translateY(-2px);
 }
 
