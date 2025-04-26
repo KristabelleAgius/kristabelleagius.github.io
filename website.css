@@ -140,10 +140,18 @@ nav ul li a {
 .hero-image {
     width: 50%;
     height: 500px;
-    background-color: #ddd;
-    background-image: url('/api/placeholder/600/500');
     background-size: cover;
     background-position: center;
+}
+
+/* Add this new rule to constrain the image size */
+.hero-image img {
+    max-width: 140%;
+    max-height: 140%;
+    object-fit: cover;
+    margin-top: -20%;
+
+    /* This maintains the image's aspect ratio */
 }
 
 .hero h1 {
@@ -166,25 +174,6 @@ nav ul li a {
 .about-container {
     display: flex;
     align-items: center;
-}
-
-.about-image {
-    width: 15%;
-    /* Reduced from 20% */
-    height: 300px;
-    /* Reduced from 400px */
-    margin-right: 8rem;
-
-}
-
-/* Add this new rule to constrain the image size */
-.about-image img {
-    max-width: 140%;
-    max-height: 140%;
-    object-fit: cover;
-    margin-top: -20%;
-
-    /* This maintains the image's aspect ratio */
 }
 
 .about-content {
