@@ -256,7 +256,6 @@
 
 
 
-
 /* Lightbox Modal - Add this to your portfolio.css file */
 .image-modal {
     display: none;
@@ -320,10 +319,28 @@
     height: 100%;
     opacity: 0.7;
     transition: opacity 0.3s;
+    cursor: pointer;
+    /* Default cursor */
 }
 
 .nav-btn:hover {
     opacity: 1;
+    cursor: pointer;
+    /* Default cursor */
+}
+
+
+/* Added: Change cursor to hand when hovering over navigation buttons */
+.prev-btn,
+.next-btn {
+    cursor: pointer;
+    /* Changed from default to pointer (hand) */
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    cursor: pointer;
+    /* Explicitly setting hand cursor on hover */
 }
 
 .pagination-dots {
