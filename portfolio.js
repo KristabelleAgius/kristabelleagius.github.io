@@ -1,100 +1,57 @@
-
-// Portfolio Filtering Functionality
 document.addEventListener('DOMContentLoaded', function () {
-    const mainFilterButtons = document.querySelectorAll('.filter-btn.main-filter');
-    const subFilterButtons = document.querySelectorAll('.filter-btn.sub-filter');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    const noProjectsMessage = document.querySelector('.no-projects-message');
-    const photographySubmenu = document.querySelector('.photography-submenu');
+    const mainFilterButtons = document.querySelectorAll('.main-filter');
+    const subFilterButtons = document.querySelectorAll('.sub-filter');
 
-    // Initially hide submenu
-    photographySubmenu.classList.add('hidden');
-
-    // Function to filter items
-    function filterItems(mainCategory, subCategory = null) {
-        let visibleItems = 0;
-
-        portfolioItems.forEach(item => {
-            // Reset first
-            item.style.display = 'none';
-            item.classList.remove('visible');
-
-            // For main category filtering
-            if (mainCategory === 'all') {
-                item.style.display = 'block';
-                visibleItems++;
-                setTimeout(() => item.classList.add('visible'), 50);
-            }
-            // For photography with subcategories
-            else if (mainCategory === 'photography') {
-                if (item.classList.contains('photography')) {
-                    if (subCategory === 'all-photography' || item.classList.contains(subCategory)) {
-                        item.style.display = 'block';
-                        visibleItems++;
-                        setTimeout(() => item.classList.add('visible'), 50);
-                    }
-                }
-            }
-            // For other main categories
-            else if (item.classList.contains(mainCategory)) {
-                item.style.display = 'block';
-                visibleItems++;
-                setTimeout(() => item.classList.add('visible'), 50);
-            }
-        });
-
-        // Show message if no projects in category
-        if (visibleItems === 0) {
-            noProjectsMessage.style.display = 'block';
-        } else {
-            noProjectsMessage.style.display = 'none';
-        }
-    }
-
-    // Main filter buttons click event
+    // Main filter button click event
     mainFilterButtons.forEach(button => {
         button.addEventListener('click', function () {
-            // Reset active states
-            mainFilterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
+            const filter = this.getAttribute('data-filter');
 
-            // Get filter value
-            const mainFilter = this.getAttribute('data-filter');
-
-            // Handle photography submenu
-            if (mainFilter === 'photography') {
-                photographySubmenu.classList.remove('hidden');
-                // Reset sub-filter to "All"
-                subFilterButtons.forEach(btn => btn.classList.remove('active'));
-                document.querySelector('.sub-filter[data-filter="all-photography"]').classList.add('active');
-
-                // Filter with subcategory "all"
-                filterItems(mainFilter, 'all-photography');
+            if (filter === 'photography') {
+                // If we're already on a photography page, just stay and show the submenu
+                // No need to navigate
             } else {
-                photographySubmenu.classList.add('hidden');
-                filterItems(mainFilter);
+                // For other main categories, you could navigate to their pages
+                // This would require creating those HTML files
+                // window.location.href = filter + '.html';
+
+                // For now, we'll just remove 'active' from all and add to this
+                mainFilterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
             }
         });
     });
 
-    // Sub filter buttons click event
+    // Sub filter button click event - this is where we'll navigate to different HTML files
     subFilterButtons.forEach(button => {
         button.addEventListener('click', function () {
-            // Reset active states for sub filters only
-            subFilterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-
-            // Get filter values
             const subFilter = this.getAttribute('data-filter');
 
-            // Filter with active main category and this subcategory
-            filterItems('photography', subFilter);
+            // Map the data-filter value to the corresponding HTML file
+            const pageMap = {
+                'portraits': 'portrait.html',
+                'animals': 'animals.html',
+                'street': 'street.html',
+                'abstract': 'abstract.html',
+                'speed': 'speed.html'  // Assuming you rename nature to speed in your files
+            };
+
+            if (pageMap[subFilter]) {
+                window.location.href = pageMap[subFilter];
+            }
         });
     });
-
-    // Initialize with Photography category selected
-    document.querySelector('.filter-btn.main-filter[data-filter="photography"]').click();
 });
+
+
+
+
+
+
+
+
+
+
 
 
 
