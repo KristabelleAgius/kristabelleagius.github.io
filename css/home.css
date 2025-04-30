@@ -27,6 +27,11 @@ header {
     z-index: 100;
 }
 
+
+.hero h2 {
+    font-size: 28px;
+}
+
 .logo {
     display: flex;
     align-items: center;

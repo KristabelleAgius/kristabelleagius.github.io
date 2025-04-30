@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography|Speed</title>
+    <title>Photography|Abstract</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -26,134 +26,57 @@
 
             <!-- Photography submenu -->
             <div class="photography-submenu">
-                <button class="filter-btn sub-filter active" data-filter="spectra">Spectra</button>
-                <button class="filter-btn sub-filter" data-filter="novabfa">Novabfa</button>
+                <button class="filter-btn sub-filter" data-filter="portraits">Portraits</button>
+                <button class="filter-btn sub-filter" data-filter="animals">Animals</button>
+                <button class="filter-btn sub-filter" data-filter="street">Street</button>
+                <button class="filter-btn sub-filter active" data-filter="abstract">Abstract</button>
+                <button class="filter-btn sub-filter" data-filter="speed">Speed</button>
             </div>
-
-
-
-            <h3 class="subtitle">Homepage</h3>
 
             <div class="portfolio-grid">
-                <!-- Homepage -->
+                <!-- Project 4 -->
                 <div class="portfolio-item photography portraits">
                     <div class="portfolio-image">
-                        <img src="images/Website/Homepage/Homepage 1.png" alt="speed">
+                        <img src="images/photography/abstract/1.JPG" alt="abstract">
                     </div>
                 </div>
 
+                <!-- Project 4 -->
                 <div class="portfolio-item photography portraits">
                     <div class="portfolio-image">
-                        <img src="images/Website/Homepage/Homepage 2.png" alt="speed">
+                        <img src="images/photography/abstract/5.JPG" alt="abstract">
                     </div>
                 </div>
 
+                <!-- Project 4 -->
                 <div class="portfolio-item photography portraits">
                     <div class="portfolio-image">
-                        <img src="images/Website/Homepage/Homepage 3.png" alt="speed">
-                    </div>
-                </div>
-            </div>
-            <h3 class="subtitle">Exhibition Showcase</h3>
-
-            <div class="portfolio-grid">
-                <!-- Exhibition Showcase - Artists page -->
-                <div class="portfolio-item photography portraits">
-                    <div class="portfolio-image">
-                        <img src="images/Website/Exhibition Showcase/Exhibition Showcase.png" alt="speed">
+                        <img src="images/photography/abstract/7.JPG" alt="abstract">
                     </div>
                 </div>
 
-                <br></br>
-
-                <p></p>
-            </div>
-
-            <h3 class="subtitle">Individual Artist</h3>
-            <!-- Individual Artist page -->
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Individual work /Claudia 1.png" alt="spectra">
+                <!-- Project 4 -->
+                <div class="portfolio-item photography portraits">
+                    <div class="portfolio-image">
+                        <img src="images/photography/abstract/9.JPG" alt="abstract">
+                    </div>
                 </div>
-            </div>
 
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Individual work /Claudia 2.png" alt="spectra">
+                <!-- Project 4 -->
+                <div class="portfolio-item photography portraits">
+                    <div class="portfolio-image">
+                        <img src="images/photography/abstract/8.JPG" alt="abstract">
+                    </div>
                 </div>
+
             </div>
-
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Individual work /Claudia 3.png" alt="spectra">
-                </div>
-            </div>
-
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Individual work /Elisa 1.png" alt="spectra">
-                </div>
-            </div>
-
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Individual work /Elisa 2.png" alt="spectra">
-                </div>
-            </div>
-
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Individual work /Elisa 3.png" alt="spectra">
-                </div>
-            </div>
-
-
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Individual work /Stefan 1.png" alt="spectra">
-                </div>
-            </div>
-
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Individual work /Stefan 2.png" alt="spectra">
-                </div>
-            </div>
-
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Individual work /Stefan 3.png" alt="spectra">
-                </div>
-            </div>
-
-            <h3 class="subtitle">Sponsors</h3>
-
-            <!-- Sponsors -->
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Sponsors /Sponsors.png" alt="spectra">
-                </div>
-            </div>
-
-            <br></br>
-            <p></p>
-
-            <h3 class="subtitle">Contact</h3>
-
-            <!-- Contact page -->
-            <div class="portfolio-item photography portraits">
-                <div class="portfolio-image">
-                    <img src="images/Website/Contact/Contact.png" alt="spectra">
-                </div>
-            </div>
-
         </div>
-    </div>
     </div>
 
 
 
     <!-- Scripts -->
+
     <!-- Replace your existing script tag for portfolio.js with this -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -193,8 +116,11 @@
 
                     // Map the data-filter value to the corresponding HTML file
                     const pageMap = {
-                        'spectra': 'spectra.html',
-                        'novabfa': 'novabfa.html'
+                        'portraits': 'portrait.html',
+                        'animals': 'animals.html',
+                        'street': 'street.html',
+                        'abstract': 'abstract.html',
+                        'speed': 'speed.html'
                     };
 
                     if (pageMap[subFilter]) {
@@ -204,6 +130,7 @@
             });
         });
     </script>
+
 
 
 

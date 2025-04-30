@@ -215,6 +215,16 @@
     color: #eeeae3;
 }
 
+.subtitle {
+    text-align: left;
+    width: 100%;
+    /* This ensures it takes up the full width and aligns properly */
+    max-width: 1200px;
+    /* Match this to your portfolio-grid max-width */
+    margin-bottom: 1rem;
+    font-size: 30px;
+}
+
 /* Media Queries for Portfolio Page */
 @media (max-width: 992px) {
     .portfolio-grid {
