@@ -30,6 +30,7 @@ header {
 
 .hero h2 {
     font-size: 28px;
+    text-align: center;
 }
 
 .logo {
@@ -141,5 +142,95 @@ header {
     nav {
         flex-wrap: wrap;
         justify-content: center;
+    }
+}
+
+
+
+
+
+
+
+
+/* Navbar Styles - Add these to your home.css file */
+.navbar {
+    background-color: transparent;
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(238, 234, 227, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #5E5648;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-link {
+    color: #5E5648;
+    font-size: 0.95rem;
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.8rem;
+    position: relative;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    background-color: #5E5648;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(94, 86, 72, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Add additional styles for navbar scroll behavior */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: rgba(238, 234, 227, 0.95);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .navbar {
+        background-color: rgba(238, 234, 227, 0.95);
+        padding: 0.75rem 5%;
     }
 }
