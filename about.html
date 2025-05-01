@@ -73,15 +73,34 @@
                     </div>
 
 
-
-
-
                 </div>
             </div>
         </div>
     </div>
 
 
+    <!-- Scripts -->
+    <!-- Lightbox container - Add this to all htmls just before the closing </body> tag -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div class="modal-navigation">
+                <button class="nav-btn prev-btn">&lt;</button>
+                <div class="image-container">
+                    <img class="modal-img" id="expandedImg">
+                </div>
+                <button class="nav-btn next-btn">&gt;</button>
+            </div>
+            <div class="pagination-dots">
+                <!-- Dots will be added dynamically with JS -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/lightbox.js"></script>
+    <script src="js/portfolio.js"></script>
 </body>
 
 </html>
