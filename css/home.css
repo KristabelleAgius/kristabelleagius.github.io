@@ -124,6 +124,15 @@ header {
     z-index: 100;
 }
 
+.hero .subtitle a {
+    color: #5E5648;
+    /* Makes the text brown */
+    text-decoration: none;
+    /* Removes the underline */
+    font-weight: 500;
+    /* Optional: makes it stand out a bit */
+}
+
 
 .hero h2 {
     font-size: 28px;
