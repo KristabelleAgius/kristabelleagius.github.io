@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kristabelle | About</title>
+    <title>Kristabelle | About Me</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!-- Standard favicon -->
@@ -25,18 +25,16 @@
     <!-- Web App Manifest -->
     <link rel="manifest" href="./images/favicon_io/site.webmanifest">
 
-
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/about.css">
 
     <!-- Font -->
     <link rel="stylesheet" href="https://use.typekit.net/wck4osq.css">
-
 </head>
 
 <body>
@@ -48,63 +46,89 @@
             <h1 class="page-title">About Me</h1>
 
             <div class="about-container">
-                <div class="profile-image">
-                    <img src="images/portrait.jpg" alt="Kristabelle Agius" />
+                <div class="about-image-column">
+                    <div class="profile-image-container">
+                        <img src="images/portrait.jpg" alt="Kristabelle Agius" class="profile-image">
+                    </div>
                 </div>
 
-                <div class="about-content">
-                    <h2>Hello, I'm Kristabelle Agius</h2>
-                    <p class="intro-text">
-                        A passionate designer based in Malta with a love for creating beautiful, functional designs
-                        that tell stories and evoke emotions.
-                    </p>
-
+                <div class="about-content-column">
                     <div class="bio-section">
-                        <p>
-                            With over 5 years of experience in design, I blend creativity with technical precision to
-                            create work that stands out. My journey in design began when I discovered my passion for
-                            visual storytelling during my studies at the University of Malta.
-                        </p>
-                        <p>
-                            I specialize in graphic design, brand identity, and digital illustration, bringing concepts
-                            to life through thoughtful design solutions. My process involves deep listening, research,
-                            and collaboration to ensure each project achieves its full potential.
-                        </p>
-                        <p>
-                            When I'm not designing, you can find me exploring nature trails across Malta, experimenting
-                            with new art techniques, or enjoying a good book at my favorite café.
-                        </p>
+                        <h2>Hello, I'm Kristabelle</h2>
+                        <p class="intro-text">A passionate artist and designer based in Malta, dedicated to creating
+                            visual experiences that inspire and captivate.</p>
+
+                        <p>My journey in art began at an early age when I discovered my love for colors and shapes. Over
+                            the years, I've refined my skills through formal education in Fine Arts and Design, as well
+                            as through countless hours of practice and experimentation.</p>
+
+                        <p>My work spans multiple disciplines including illustration, photography, and digital design. I
+                            draw inspiration from nature, architecture, and the rich cultural heritage of the
+                            Mediterranean region. Each piece I create aims to tell a story and evoke emotion.</p>
+
+                        <p>When I'm not creating art, you can find me exploring new locations with my camera, reading
+                            about art history, or experimenting with new techniques in my studio.</p>
                     </div>
 
+                    <div class="skills-education-section">
+                        <div class="skills-container">
+                            <h3>Skills</h3>
+                            <ul class="skills-list">
+                                <li><span>Illustration</span></li>
+                                <li><span>Digital Art</span></li>
+                                <li><span>Photography</span></li>
+                                <li><span>Graphic Design</span></li>
+                                <li><span>Digital Painting</span></li>
+                                <li><span>Typography</span></li>
+                            </ul>
+                        </div>
 
+                        <div class="education-container">
+                            <h3>Education</h3>
+                            <div class="education-item">
+                                <h4>Bachelor of Fine Arts</h4>
+                                <p class="education-place">University of Malta</p>
+                                <p class="education-year">2020 - 2024</p>
+                            </div>
+                            <div class="education-item">
+                                <h4>Certificate in Digital Design</h4>
+                                <p class="education-place">Malta College of Arts, Science & Technology</p>
+                                <p class="education-year">2019</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="philosophy-section">
+                        <h3>My Approach</h3>
+                        <blockquote>
+                            "I believe art should speak to the soul. My goal is to create work that resonates on an
+                            emotional level, challenging perspectives and creating moments of reflection."
+                        </blockquote>
+                    </div>
+
+                    <div class="cta-section">
+                        <p>Interested in collaborating or commissioning a piece?</p>
+                        <a href="contact.html" class="cta-button">Get in Touch</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- Scripts -->
-    <!-- Lightbox container - Add this to all htmls just before the closing </body> tag -->
-    <div id="imageModal" class="image-modal">
-        <span class="close-modal">&times;</span>
-        <div class="modal-content">
-            <div class="modal-navigation">
-                <button class="nav-btn prev-btn">&lt;</button>
-                <div class="image-container">
-                    <img class="modal-img" id="expandedImg">
-                </div>
-                <button class="nav-btn next-btn">&gt;</button>
-            </div>
-            <div class="pagination-dots">
-                <!-- Dots will be added dynamically with JS -->
-            </div>
-        </div>
-    </div>
-
-
-
-    <script src="js/lightbox.js"></script>
-    <script src="js/portfolio.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/components.js"></script>
+    <script>
+        // Add background to navbar when scrolling
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 
 </html>
