@@ -74,35 +74,50 @@
 
 
 
+
+
+
+
+
     <!-- Scripts -->
+
     <!-- Replace your existing script tag for portfolio.js with this -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Replace the inline JavaScript in your HTML files with this:
+
         document.addEventListener('DOMContentLoaded', function () {
             const mainFilterButtons = document.querySelectorAll('.main-filter');
             const subFilterButtons = document.querySelectorAll('.sub-filter');
             const photographySubmenu = document.querySelector('.photography-submenu');
 
-            // Make sure the photography submenu is visible
-            if (document.querySelector('.main-filter[data-filter="photography"]').classList.contains('active')) {
-                photographySubmenu.style.display = 'flex';
-            } else {
-                photographySubmenu.style.display = 'none';
+            // Make sure the correct submenu is visible
+            const activeMainFilter = document.querySelector('.main-filter.active');
+            if (activeMainFilter) {
+                const activeCategory = activeMainFilter.getAttribute('data-filter');
+                if (activeCategory === 'photography' || activeCategory === 'website' ||
+                    activeCategory === 'branding' || activeCategory === 'illustration') {
+                    photographySubmenu.style.display = 'flex';
+                } else {
+                    photographySubmenu.style.display = 'none';
+                }
             }
 
-            // Main filter button click event
+            // Main filter button click event - NO ALERTS, direct navigation instead
             mainFilterButtons.forEach(button => {
                 button.addEventListener('click', function () {
                     const filter = this.getAttribute('data-filter');
 
-                    if (filter === 'photography') {
-                        // If already on photography, just show submenu
-                        mainFilterButtons.forEach(btn => btn.classList.remove('active'));
-                        this.classList.add('active');
-                        photographySubmenu.style.display = 'flex';
-                    } else {
-                        // For future implementation of other main category pages
-                        alert("This feature is coming soon!");
+                    // Navigate to default page for each main category
+                    const mainPageMap = {
+                        'photography': 'portrait.html',
+                        'website': 'spectra.html',
+                        'branding': 'miaf.html',
+                        'illustration': 'sketches.html'
+                    };
+
+                    if (mainPageMap[filter]) {
+                        window.location.href = mainPageMap[filter];
                     }
                 });
             });
@@ -112,13 +127,28 @@
                 button.addEventListener('click', function () {
                     const subFilter = this.getAttribute('data-filter');
 
-                    // Map the data-filter value to the corresponding HTML file
+                    // Map all subcategories to their corresponding HTML files
                     const pageMap = {
+                        // Photography pages
                         'portraits': 'portrait.html',
                         'animals': 'animals.html',
                         'street': 'street.html',
                         'abstract': 'abstract.html',
-                        'speed': 'speed.html'
+                        'speed': 'speed.html',
+
+                        // Website pages
+                        'spectra': 'spectra.html',
+                        'novabfa': 'novabfa.html',
+
+                        // Branding pages
+                        'miaf': 'miaf.html',
+
+                        // Illustration pages
+                        'painting': 'painting.html',
+                        'drawing': 'drawing.html',
+                        'sketches': 'sketches.html',
+                        'vector': 'vector.html',
+                        'digital': 'digital.html'
                     };
 
                     if (pageMap[subFilter]) {
@@ -164,6 +194,7 @@
     </script>
     <script src="js/lightbox.js"></script>
     <script src="js/portfolio.js"></script>
+
 
 </body>
 
