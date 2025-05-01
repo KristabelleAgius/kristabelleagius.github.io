@@ -3,12 +3,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const subFilterButtons = document.querySelectorAll('.sub-filter');
     const photographySubmenu = document.querySelector('.photography-submenu');
 
-    // Show the correct submenu on page load
-    if (document.querySelector('.main-filter[data-filter="photography"]').classList.contains('active')) {
-        photographySubmenu.style.display = 'flex';
-    } else {
-        photographySubmenu.style.display = 'none';
+    // Function to sync main category with subcategory
+    function syncMainCategory() {
+        // Check if this is a photography subcategory page
+        const activeSubFilter = document.querySelector('.sub-filter.active');
+
+        if (activeSubFilter) {
+            const subFilter = activeSubFilter.getAttribute('data-filter');
+
+            // Photography subcategories
+            const photoCategories = ['portraits', 'animals', 'street', 'abstract', 'speed'];
+
+            // Website subcategories
+            const webCategories = ['spectra', 'novabfa'];
+
+            // Set the appropriate main filter as active
+            mainFilterButtons.forEach(btn => btn.classList.remove('active'));
+
+            if (photoCategories.includes(subFilter)) {
+                document.querySelector('.main-filter[data-filter="photography"]').classList.add('active');
+                photographySubmenu.style.display = 'flex';
+            } else if (webCategories.includes(subFilter)) {
+                document.querySelector('.main-filter[data-filter="website"]').classList.add('active');
+                photographySubmenu.style.display = 'flex'; // Keep the submenu visible for website subcategories
+            }
+        }
     }
+
+    // Run on page load to ensure correct main category is highlighted
+    syncMainCategory();
 
     // Main filter button click event
     mainFilterButtons.forEach(button => {
@@ -22,17 +45,36 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('active');
 
             // Handle photography submenu visibility
-            if (filter === 'photography') {
+            if (filter === 'photography' || filter === 'website') {
                 photographySubmenu.style.display = 'flex';
+
+                // Update submenu contents based on main category
+                if (filter === 'website') {
+                    // Hide photography-specific buttons and show website-specific buttons
+                    subFilterButtons.forEach(btn => {
+                        const subFilter = btn.getAttribute('data-filter');
+                        if (['portraits', 'animals', 'street', 'abstract', 'speed'].includes(subFilter)) {
+                            btn.style.display = 'none';
+                        } else if (['spectra', 'novabfa'].includes(subFilter)) {
+                            btn.style.display = 'inline-block';
+                        }
+                    });
+                } else if (filter === 'photography') {
+                    // Hide website-specific buttons and show photography-specific buttons
+                    subFilterButtons.forEach(btn => {
+                        const subFilter = btn.getAttribute('data-filter');
+                        if (['portraits', 'animals', 'street', 'abstract', 'speed'].includes(subFilter)) {
+                            btn.style.display = 'inline-block';
+                        } else if (['spectra', 'novabfa'].includes(subFilter)) {
+                            btn.style.display = 'none';
+                        }
+                    });
+                }
             } else {
                 photographySubmenu.style.display = 'none';
 
                 // Here you would handle showing content for the other main categories
-                // For example, you might have different content sections for each category
-                // and show/hide them based on the selected filter
-
                 // For now, we'll just show a placeholder message
-                // In a production site, you would remove this alert and implement proper category switching
                 alert(`${filter.charAt(0).toUpperCase() + filter.slice(1)} category selected! Add your content here.`);
             }
         });
@@ -60,94 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-
-
-
-
-
-
-// Lightbox functionality - Save this as lightbox.js in your js folder
-document.addEventListener('DOMContentLoaded', function () {
-    // Get all portfolio images
-    const portfolioImages = document.querySelectorAll('.portfolio-image img');
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('expandedImg');
-    const closeBtn = document.querySelector('.close-modal');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const paginationDots = document.querySelector('.pagination-dots');
-
-    let currentIndex = 0;
-
-    // Create pagination dots
-    portfolioImages.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        dot.addEventListener('click', () => showImage(index));
-        paginationDots.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll('.dot');
-
-    // Function to show image at specified index
-    function showImage(index) {
-        if (index < 0) index = portfolioImages.length - 1;
-        if (index >= portfolioImages.length) index = 0;
-
-        currentIndex = index;
-        modalImg.src = portfolioImages[index].src;
-
-        // Update active dot
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-    }
-
-    // Add click event to each portfolio image
-    portfolioImages.forEach((img, index) => {
-        img.addEventListener('click', function () {
-            modal.style.display = 'block';
-            showImage(index);
-        });
-    });
-
-    // Close modal
-    closeBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
-    });
-
-    // Navigate to previous image
-    prevBtn.addEventListener('click', function () {
-        showImage(currentIndex - 1);
-    });
-
-    // Navigate to next image
-    nextBtn.addEventListener('click', function () {
-        showImage(currentIndex + 1);
-    });
-
-    // Close modal when clicking outside the image
-    window.addEventListener('click', function (event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', function (event) {
-        if (modal.style.display === 'block') {
-            if (event.key === 'ArrowLeft') {
-                showImage(currentIndex - 1);
-            } else if (event.key === 'ArrowRight') {
-                showImage(currentIndex + 1);
-            } else if (event.key === 'Escape') {
-                modal.style.display = 'none';
-            }
-        }
-    });
-});
-
 
 
 
