@@ -12,9 +12,25 @@
 .page-title {
     font-size: 3rem;
     font-weight: 300;
+    margin-top: 3rem;
     margin-bottom: 2rem;
     text-align: center;
     letter-spacing: 2px;
+}
+
+.portfolio-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    /* Keep this from your current CSS */
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+    /* Add this line to match contact.css */
 }
 
 /* Enhanced box styling */
