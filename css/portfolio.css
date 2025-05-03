@@ -184,10 +184,12 @@ header {
     padding: 1rem 0;
 }
 
+
 .navbar-title {
-    font-family: 'fromage', serif;
+    font-family: 'fromage', serif !important;
     font-weight: 700;
     margin-bottom: 0;
+    letter-spacing: 1px;
 }
 
 h1 {
