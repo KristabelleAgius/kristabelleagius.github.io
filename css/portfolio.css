@@ -117,28 +117,7 @@ body {
 
 
 
-
-
-
-/*===============================Portfolio Page===============================*/
-
-
-/* Portfolio Page */
-
-.portfolio-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 4rem;
-    /* Keep this from your current CSS */
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 2rem;
-    position: relative;
-    z-index: 1;
-    margin-top: 2rem;
-    /* Add this line to match contact.css */
-}
+/*===============================All Pages===============================*/
 
 .page-title {
     font-size: 3rem;
@@ -147,6 +126,235 @@ body {
     margin-bottom: 2rem;
     text-align: center;
     letter-spacing: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+/*===============================Home Page===============================*/
+container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: relative;
+    z-index: 100;
+}
+
+.hero .subtitle a {
+    color: #5E5648;
+    /* Makes the text brown */
+    text-decoration: none;
+    /* Removes the underline */
+    font-weight: 500;
+    /* Optional: makes it stand out a bit */
+}
+
+
+.hero h2 {
+    font-size: 28px;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 30px;
+}
+
+
+/* Navbar Styles */
+.custom-navbar {
+    background-color: transparent;
+    padding: 1rem 0;
+}
+
+.navbar-title {
+    font-family: 'fromage', serif;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+h1 {
+    font-family: 'fromage', serif;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+    color: #5E5648;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #5E5648;
+    opacity: 1;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #5E5648;
+}
+
+.navbar-toggler {
+    border: none;
+    color: #5E5648;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(94, 86, 72, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.title {
+    font-size: 5.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: 4px;
+}
+
+.subtitle {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+
+
+
+
+/* Navbar Styles - Add these to your home.css file */
+.navbar {
+    background-color: transparent;
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(238, 234, 227, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #5E5648;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-link {
+    color: #5E5648;
+    font-size: 0.95rem;
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.8rem;
+    position: relative;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    background-color: #5E5648;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(94, 86, 72, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*===============================Portfolio Page===============================*/
+
+/* Portfolio Page */
+.portfolio-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
 }
 
 .portfolio-filter {
@@ -351,59 +559,11 @@ body {
 .subtitle {
     text-align: left;
     width: 100%;
-    /* This ensures it takes up the full width and aligns properly */
     max-width: 1200px;
-    /* Match this to your portfolio-grid max-width */
     margin-bottom: 1rem;
     font-size: 30px;
 }
 
-
-
-
-/* Media Queries for Portfolio Page */
-@media (max-width: 992px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .page-title {
-        font-size: 2.5rem;
-    }
-
-    .filter-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .portfolio-filter {
-        flex-direction: column;
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .filter-btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-
-
-
-
-
-
-/* Lightbox Modal - Add this to your portfolio.css file */
 .image-modal {
     display: none;
     position: fixed;
@@ -469,27 +629,21 @@ body {
     opacity: 0.7;
     transition: opacity 0.3s;
     cursor: pointer;
-    /* Default cursor */
 }
 
 .nav-btn:hover {
     opacity: 1;
     cursor: pointer;
-    /* Default cursor */
 }
 
-
-/* Added: Change cursor to hand when hovering over navigation buttons */
 .prev-btn,
 .next-btn {
     cursor: pointer;
-    /* Changed from default to pointer (hand) */
 }
 
 .prev-btn:hover,
 .next-btn:hover {
     cursor: pointer;
-    /* Explicitly setting hand cursor on hover */
 }
 
 .pagination-dots {
@@ -513,7 +667,6 @@ body {
     background-color: white;
 }
 
-/* Fullscreen button - optional */
 .fullscreen-btn {
     position: absolute;
     bottom: 15px;
@@ -548,19 +701,303 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
 /*===============================About Page===============================*/
-/* About Page */
+/* About Me Page */
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 5%;
+    position: relative;
+    z-index: 1;
+}
+
+.about-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 4rem;
+    background-color: #fff;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-image {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.6s ease;
+    object-fit: cover;
+}
+
+.profile-image:hover {
+    transform: scale(1.03);
+}
+
+.about-image-column {
+    flex: 0 0 28%;
+}
+
+.about-content-column {
+    flex: 0 0 65%;
+    text-align: justify;
+}
+
+.about-content {
+    flex: 0 0 65%;
+}
+
+.about-content h2 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*===============================Contact page===============================*/
 /* Contact Page */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 5%;
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+}
+
+.contact-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 4rem;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 6px 30px rgba(94, 86, 72, 0.15);
+    border: 1px solid rgba(94, 86, 72, 0.1);
+}
+
+.contact-info,
+.contact-form {
+    flex: 1;
+}
+
+.contact-info {
+    border-right: 1px solid rgba(94, 86, 72, 0.1);
+    /* Divider for desktop view */
+    padding-right: 2rem;
+}
+
+.contact-form {
+    padding-left: 2rem;
+}
+
+.contact-info h2,
+.contact-form h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: #5E5648;
+}
+
+.contact-info p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.icon {
+    margin-right: 1rem;
+    color: #5E5648;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-left: -3%;
+    margin-top: -2%;
+    border-radius: 50%;
+    color: #5E5648;
+    transition: all 0.3s ease;
+    background-color: rgba(94, 86, 72, 0.05);
+    /* Subtle background for icons */
+}
+
+.social-icon:hover {
+    color: #464035;
+    background-color: rgba(94, 86, 72, 0.1);
+    transform: translateY(-3px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    color: #5E5648;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: rgba(94, 86, 72, 0.05);
+    border: 1px solid rgba(94, 86, 72, 0.2);
+    border-radius: 6px;
+    color: #5E5648;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #5E5648;
+    background-color: rgba(94, 86, 72, 0.08);
+    box-shadow: 0 0 0 3px rgba(94, 86, 72, 0.1);
+    /* Focus ring */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(94, 86, 72, 0.5);
+}
+
+.submit-btn {
+    background-color: #5E5648;
+    color: #eeeae3;
+    border: 2px solid transparent;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.submit-btn:hover {
+    background-color: #464035;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(94, 86, 72, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*===============================Media Queries - Responsiveness===============================*/
+
+/* Media Queries for Portfolio Page */
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .portfolio-filter {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .filter-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

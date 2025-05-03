@@ -1,0 +1,205 @@
+/* Contact Page Styles */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 5%;
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.portfolio-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    /* Keep this from your current CSS */
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+    /* Add this line to match contact.css */
+}
+
+/* Enhanced box styling */
+.contact-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 4rem;
+    background-color: #fff;
+    /* Solid white background */
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 6px 30px rgba(94, 86, 72, 0.15);
+    /* Heavier shadow using your theme color */
+    border: 1px solid rgba(94, 86, 72, 0.1);
+    /* Subtle border */
+}
+
+.contact-info,
+.contact-form {
+    flex: 1;
+}
+
+.contact-info {
+    border-right: 1px solid rgba(94, 86, 72, 0.1);
+    /* Divider for desktop view */
+    padding-right: 2rem;
+}
+
+.contact-form {
+    padding-left: 2rem;
+}
+
+.contact-info h2,
+.contact-form h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: #5E5648;
+}
+
+.contact-info p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.icon {
+    margin-right: 1rem;
+    color: #5E5648;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-left: -3%;
+    margin-top: -2%;
+    border-radius: 50%;
+    color: #5E5648;
+    transition: all 0.3s ease;
+    background-color: rgba(94, 86, 72, 0.05);
+    /* Subtle background for icons */
+}
+
+.social-icon:hover {
+    color: #464035;
+    background-color: rgba(94, 86, 72, 0.1);
+    transform: translateY(-3px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    color: #5E5648;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: rgba(94, 86, 72, 0.05);
+    border: 1px solid rgba(94, 86, 72, 0.2);
+    border-radius: 6px;
+    color: #5E5648;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #5E5648;
+    background-color: rgba(94, 86, 72, 0.08);
+    box-shadow: 0 0 0 3px rgba(94, 86, 72, 0.1);
+    /* Focus ring */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(94, 86, 72, 0.5);
+}
+
+.submit-btn {
+    background-color: #5E5648;
+    color: #eeeae3;
+    border: 2px solid transparent;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.submit-btn:hover {
+    background-color: #464035;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(94, 86, 72, 0.2);
+}
+
+/* Media Queries for Contact Page */
+@media (max-width: 992px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .contact-info {
+        border-right: none;
+        border-bottom: 1px solid rgba(94, 86, 72, 0.1);
+        padding-right: 0;
+        padding-bottom: 2rem;
+    }
+
+    .contact-form {
+        padding-left: 0;
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .contact-container {
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(94, 86, 72, 0.15);
+    }
+}
