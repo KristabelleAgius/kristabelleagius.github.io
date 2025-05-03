@@ -866,7 +866,6 @@ h1 {
     color: #5E5648;
     transition: all 0.3s ease;
     background-color: rgba(94, 86, 72, 0.05);
-    /* Subtle background for icons */
 }
 
 .social-icon:hover {
