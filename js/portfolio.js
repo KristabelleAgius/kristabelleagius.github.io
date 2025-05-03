@@ -174,11 +174,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Image paths - replace these with your actual image paths
     const imagePaths = [
         'images/photography/portraits/1.jpg',
-        './images/background/img2.jpg',
-        './images/background/img3.jpg',
-        './images/background/img4.jpg',
-        './images/background/img5.jpg',
-        './images/background/img6.jpg'
+        'images/photography/portraits/2.jpg',
+        'images/photography/portraits/3.jpg',
+        'images/photography/portraits/4.jpg',
+        'images/photography/portraits/5.jpg',
+        'images/photography/portraits/7.jpg',
     ];
 
     // Create floating images
