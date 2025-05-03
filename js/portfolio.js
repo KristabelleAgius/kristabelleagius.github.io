@@ -157,3 +157,91 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+
+
+
+
+
+/*===============================Animation===============================*/
+document.addEventListener('DOMContentLoaded', function () {
+    // Create container for floating images
+    const floatingContainer = document.createElement('div');
+    floatingContainer.className = 'floating-background';
+    document.body.insertBefore(floatingContainer, document.body.firstChild);
+
+    // Image paths - replace these with your actual image paths
+    const imagePaths = [
+        'images/photography/portraits/1.jpg',
+        './images/background/img2.jpg',
+        './images/background/img3.jpg',
+        './images/background/img4.jpg',
+        './images/background/img5.jpg',
+        './images/background/img6.jpg'
+    ];
+
+    // Create floating images
+    const imageCount = 6; // Number of floating images
+    const images = [];
+
+    for (let i = 0; i < imageCount; i++) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'floating-image-wrapper';
+
+        const img = document.createElement('img');
+        img.src = imagePaths[i % imagePaths.length];
+        img.className = 'floating-image';
+        img.alt = 'Floating background image';
+
+        wrapper.appendChild(img);
+        floatingContainer.appendChild(wrapper);
+
+        // Generate random positions and properties for each image
+        const size = Math.random() * 250 + 150; // 150-400px
+        const x = Math.random() * 100; // 0-100%
+        const y = Math.random() * 100; // 0-100%
+        const rotate = Math.random() * 20 - 10; // -10 to 10 degrees
+        const delay = Math.random() * 5; // 0-5s delay
+        const duration = Math.random() * 10 + 20; // 20-30s animation duration
+
+        wrapper.style.width = `${size}px`;
+        wrapper.style.height = `${size * 1.5}px`; // Assuming 2:3 aspect ratio as in your portfolio
+        wrapper.style.left = `${x}%`;
+        wrapper.style.top = `${y}%`;
+        wrapper.style.transform = `rotate(${rotate}deg)`;
+        wrapper.style.animationDelay = `${delay}s`;
+        wrapper.style.animationDuration = `${duration}s`;
+
+        // Store reference for mouse movement effect
+        images.push({
+            element: wrapper,
+            x: x,
+            y: y,
+            moveX: 0,
+            moveY: 0
+        });
+    }
+
+    // Mouse movement effect
+    document.addEventListener('mousemove', function (e) {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+
+        images.forEach(image => {
+            // Calculate movement based on mouse position (subtle effect)
+            const moveX = (mouseX - 0.5) * 20;
+            const moveY = (mouseY - 0.5) * 20;
+
+            // Apply transform with subtle delay for more natural feeling
+            image.moveX += (moveX - image.moveX) * 0.05;
+            image.moveY += (moveY - image.moveY) * 0.05;
+
+            image.element.style.transform = `translate(${image.moveX}px, ${image.moveY}px) rotate(${image.element.style.transform.match(/rotate\((.*?)deg\)/)[1]}deg)`;
+        });
+    });
+});
+
+
+
+

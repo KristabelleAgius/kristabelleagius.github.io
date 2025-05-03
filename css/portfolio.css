@@ -313,7 +313,89 @@ h1 {
 
 
 
+/* Animation Floating Background Styles */
+.floating-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    /* Allow clicks to pass through */
+}
 
+.floating-image-wrapper {
+    position: absolute;
+    border-radius: 8px;
+    overflow: hidden;
+    opacity: 0.15;
+    /* Subtle transparency for background effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    animation: float 25s infinite ease-in-out;
+    will-change: transform;
+    /* Performance optimization for animations */
+    transition: transform 0.5s ease-out;
+}
+
+.floating-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s ease-out;
+}
+
+/* Hover effect - subtle zoom */
+.floating-image-wrapper:hover .floating-image {
+    transform: scale(1.05);
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(15px) rotate(-2deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Add this section to ensure content remains visible */
+.hero,
+.navbar,
+.portfolio-section,
+.about-section,
+.contact-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add a subtle gradient overlay to ensure better text readability */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(238, 234, 227, 0.95) 0%, rgba(238, 234, 227, 0.85) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
 
 
 
