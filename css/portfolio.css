@@ -314,90 +314,148 @@ h1 {
 
 
 /* Animation Floating Background Styles */
-.floating-background {
-    position: fixed;
+/* Hover Carousel Styles 
+   Add these styles to your portfolio.css file or create a new CSS file */
+/* Background Hover Carousel Styles */
+.home-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.bg-hover-carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    /* Behind content */
+}
+
+.hover-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hover-carousel-items {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    overflow: hidden;
-    pointer-events: none;
-    /* Allow clicks to pass through */
 }
 
-.floating-image-wrapper {
+.hover-carousel-item {
     position: absolute;
-    border-radius: 8px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease;
     overflow: hidden;
-    opacity: 0.15;
-    /* Subtle transparency for background effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    animation: float 25s infinite ease-in-out;
-    will-change: transform;
-    /* Performance optimization for animations */
-    transition: transform 0.5s ease-out;
 }
 
-.floating-image {
+.hover-carousel-item.active {
+    opacity: 1;
+}
+
+.hover-carousel-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1.5s ease-out;
+    transition: transform 1.5s ease;
 }
 
-/* Hover effect - subtle zoom */
-.floating-image-wrapper:hover .floating-image {
-    transform: scale(1.05);
-}
-
-/* Floating animation */
-@keyframes float {
-    0% {
-        transform: translateY(0px) rotate(0deg);
-    }
-
-    25% {
-        transform: translateY(-15px) rotate(2deg);
-    }
-
-    50% {
-        transform: translateY(0px) rotate(0deg);
-    }
-
-    75% {
-        transform: translateY(15px) rotate(-2deg);
-    }
-
-    100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-}
-
-/* Add this section to ensure content remains visible */
-.hero,
-.navbar,
-.portfolio-section,
-.about-section,
-.contact-section {
-    position: relative;
-    z-index: 1;
-}
-
-/* Add a subtle gradient overlay to ensure better text readability */
-body::after {
-    content: '';
-    position: fixed;
+.hover-carousel-nav {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(238, 234, 227, 0.95) 0%, rgba(238, 234, 227, 0.85) 100%);
-    z-index: -1;
+    display: flex;
     pointer-events: none;
+    z-index: 5;
 }
 
+.hover-carousel-nav-item {
+    flex: 1;
+    height: 100%;
+    pointer-events: auto;
+    cursor: pointer;
+}
 
+.hover-carousel-indicators {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 15;
+}
+
+.hover-carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hover-carousel-indicator.active {
+    background-color: #fff;
+    transform: scale(1.2);
+}
+
+/* Overlay for better text readability */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(238, 234, 227, 0.4);
+    /* Semi-transparent overlay matching your site's background */
+    z-index: 1;
+}
+
+/* Hero content adjustments */
+.hero {
+    position: relative;
+    z-index: 5;
+    /* Above the background */
+    padding: 0 20px;
+}
+
+.title {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add image zoom effect on hover */
+.bg-hover-carousel-container:hover .hover-carousel-item.active .hover-carousel-image {
+    transform: scale(1.05);
+}
+
+/* Filter button styling for better visibility */
+.filter-btn.sub-filter {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #5E5648;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.sub-filter:hover {
+    background-color: rgba(94, 86, 72, 0.7);
+    color: #eeeae3;
+}
 
 
 

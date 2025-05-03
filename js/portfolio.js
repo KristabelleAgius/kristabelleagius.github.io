@@ -49,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to show submenu for a specific category
     function showSubmenuForCategory(category) {
         // Show the submenu
-        photographySubmenu.style.display = 'flex';
+        if (photographySubmenu) {
+            photographySubmenu.style.display = 'flex';
+        }
 
         // Update submenu buttons based on category
         subFilterButtons.forEach(btn => {
@@ -148,100 +150,144 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*===============================Animation===============================*/
-document.addEventListener('DOMContentLoaded', function () {
-    // Create container for floating images
-    const floatingContainer = document.createElement('div');
-    floatingContainer.className = 'floating-background';
-    document.body.insertBefore(floatingContainer, document.body.firstChild);
-
-    // Image paths - replace these with your actual image paths
-    const imagePaths = [
-        'images/photography/portraits/1.jpg',
-        'images/photography/portraits/2.jpg',
-        'images/photography/portraits/3.jpg',
-        'images/photography/portraits/4.jpg',
-        'images/photography/portraits/5.jpg',
-        'images/photography/portraits/7.jpg',
-    ];
-
-    // Create floating images
-    const imageCount = 6; // Number of floating images
-    const images = [];
-
-    for (let i = 0; i < imageCount; i++) {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'floating-image-wrapper';
-
-        const img = document.createElement('img');
-        img.src = imagePaths[i % imagePaths.length];
-        img.className = 'floating-image';
-        img.alt = 'Floating background image';
-
-        wrapper.appendChild(img);
-        floatingContainer.appendChild(wrapper);
-
-        // Generate random positions and properties for each image
-        const size = Math.random() * 250 + 150; // 150-400px
-        const x = Math.random() * 100; // 0-100%
-        const y = Math.random() * 100; // 0-100%
-        const rotate = Math.random() * 20 - 10; // -10 to 10 degrees
-        const delay = Math.random() * 5; // 0-5s delay
-        const duration = Math.random() * 10 + 20; // 20-30s animation duration
-
-        wrapper.style.width = `${size}px`;
-        wrapper.style.height = `${size * 1.5}px`; // Assuming 2:3 aspect ratio as in your portfolio
-        wrapper.style.left = `${x}%`;
-        wrapper.style.top = `${y}%`;
-        wrapper.style.transform = `rotate(${rotate}deg)`;
-        wrapper.style.animationDelay = `${delay}s`;
-        wrapper.style.animationDuration = `${duration}s`;
-
-        // Store reference for mouse movement effect
-        images.push({
-            element: wrapper,
-            x: x,
-            y: y,
-            moveX: 0,
-            moveY: 0
-        });
+// Enhanced hover carousel function for background use
+function createHoverCarousel(containerId, images) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error('Container element not found');
+        return;
     }
 
-    // Mouse movement effect
-    document.addEventListener('mousemove', function (e) {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
+    // Create carousel structure
+    const carousel = document.createElement('div');
+    carousel.className = 'hover-carousel';
 
-        images.forEach(image => {
-            // Calculate movement based on mouse position (subtle effect)
-            const moveX = (mouseX - 0.5) * 20;
-            const moveY = (mouseY - 0.5) * 20;
+    const carouselItemsContainer = document.createElement('div');
+    carouselItemsContainer.className = 'hover-carousel-items';
 
-            // Apply transform with subtle delay for more natural feeling
-            image.moveX += (moveX - image.moveX) * 0.05;
-            image.moveY += (moveY - image.moveY) * 0.05;
+    const indicatorsContainer = document.createElement('div');
+    indicatorsContainer.className = 'hover-carousel-indicators';
 
-            image.element.style.transform = `translate(${image.moveX}px, ${image.moveY}px) rotate(${image.element.style.transform.match(/rotate\((.*?)deg\)/)[1]}deg)`;
+    let activeIndex = 0;
+    let hoveredSection = -1;
+    let timer;
+    let isAutoPlaying = true;
+    const autoPlayInterval = 5000; // 5 seconds per slide for background
+
+    // Create carousel items
+    images.forEach((image, index) => {
+        // Create item
+        const item = document.createElement('div');
+        item.className = `hover-carousel-item ${index === 0 ? 'active' : ''}`;
+
+        // Create image
+        const img = document.createElement('img');
+        img.src = image.src;
+        img.alt = image.title || `Image ${index + 1}`;
+        img.className = 'hover-carousel-image';
+
+        // Add image to item and item to container
+        item.appendChild(img);
+        carouselItemsContainer.appendChild(item);
+
+        // Create indicator
+        const indicator = document.createElement('div');
+        indicator.className = `hover-carousel-indicator ${index === 0 ? 'active' : ''}`;
+        indicator.dataset.index = index;
+        indicatorsContainer.appendChild(indicator);
+
+        // Add click event to indicator
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+            resetAutoPlay();
         });
     });
-});
 
+    // Create hover navigation sections
+    const carouselNav = document.createElement('div');
+    carouselNav.className = 'hover-carousel-nav';
 
+    // Create navigation sections (one for each image)
+    for (let i = 0; i < images.length; i++) {
+        const navItem = document.createElement('div');
+        navItem.className = 'hover-carousel-nav-item';
+        navItem.dataset.index = i;
 
+        // Add hover events
+        navItem.addEventListener('mouseover', () => {
+            const index = parseInt(navItem.dataset.index);
+            if (index !== activeIndex) {
+                hoveredSection = index;
+                goToSlide(index);
+                resetAutoPlay();
+            }
+        });
 
+        navItem.addEventListener('mouseout', () => {
+            hoveredSection = -1;
+        });
+
+        carouselNav.appendChild(navItem);
+    }
+
+    // Append all elements to carousel and container
+    carousel.appendChild(carouselItemsContainer);
+    carousel.appendChild(indicatorsContainer);
+    carousel.appendChild(carouselNav);
+    container.appendChild(carousel);
+
+    // Function to change slide
+    function goToSlide(index) {
+        // Remove active class from current active elements
+        const activeItem = carouselItemsContainer.querySelector('.hover-carousel-item.active');
+        if (activeItem) activeItem.classList.remove('active');
+
+        const activeIndicator = indicatorsContainer.querySelector('.hover-carousel-indicator.active');
+        if (activeIndicator) activeIndicator.classList.remove('active');
+
+        // Add active class to new elements
+        const newActiveItem = carouselItemsContainer.querySelectorAll('.hover-carousel-item')[index];
+        if (newActiveItem) newActiveItem.classList.add('active');
+
+        const newActiveIndicator = indicatorsContainer.querySelectorAll('.hover-carousel-indicator')[index];
+        if (newActiveIndicator) newActiveIndicator.classList.add('active');
+
+        activeIndex = index;
+    }
+
+    // Auto play function
+    function autoPlay() {
+        if (!isAutoPlaying) return;
+
+        // If a section is being hovered, don't auto advance
+        if (hoveredSection !== -1) return;
+
+        const nextIndex = (activeIndex + 1) % images.length;
+        goToSlide(nextIndex);
+
+        timer = setTimeout(autoPlay, autoPlayInterval);
+    }
+
+    // Reset auto play timer
+    function resetAutoPlay() {
+        clearTimeout(timer);
+        timer = setTimeout(autoPlay, autoPlayInterval);
+    }
+
+    // Start auto play
+    timer = setTimeout(autoPlay, autoPlayInterval);
+
+    // Return methods for external control
+    return {
+        goToSlide,
+        getCurrentIndex: () => activeIndex,
+        pauseAutoPlay: () => {
+            isAutoPlaying = false;
+            clearTimeout(timer);
+        },
+        resumeAutoPlay: () => {
+            isAutoPlaying = true;
+            resetAutoPlay();
+        }
+    };
+}

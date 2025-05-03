@@ -25,44 +25,51 @@
     <!-- Web App Manifest -->
     <link rel="manifest" href="./images/favicon_io/site.webmanifest">
 
-
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/portfolio.css">
+    <!-- Background hover carousel CSS -->
+    <link rel="stylesheet" href="css/hover-carousel-bg.css">
 
     <!-- Fromage Font -->
     <link rel="stylesheet" href="https://use.typekit.net/wck4osq.css">
 
     <!-- Libertinus Font -->
     <link href="https://cdn.jsdelivr.net/gh/alerque/libertinus@v7.040/libertinus-webfonts.css" rel="stylesheet">
-
-
 </head>
 
 <body>
     <!-- Navbar -->
     <div id="nav-component"></div>
 
-    <!-- Homepage submenu -->
-    <div class="hero">
-        <h1 class="title">Kristabelle Agius</h1>
-        <h2 class="subtitle">
-            <button class="filter-btn sub-filter" data-filter="portraits">Photography</button>
-            <button class="filter-btn sub-filter" data-filter="spectra">Web Design</button>
-            <button class="filter-btn sub-filter" data-filter="miaf">Brand Design</button>
-            <button class="filter-btn sub-filter" data-filter="painting">Illustration</button>
-        </h2>
+    <!-- Home Container with Background Carousel -->
+    <div class="home-container">
+        <!-- Background Carousel -->
+        <div class="bg-hover-carousel-container" id="bg-portfolio-carousel"></div>
+
+        <!-- Semi-transparent overlay for better text visibility -->
+        <div class="background-overlay"></div>
+
+        <!-- Hero Content (above the background) -->
+        <div class="hero">
+            <h1 class="title">Kristabelle Agius</h1>
+            <h2 class="subtitle">
+                <button class="filter-btn sub-filter" data-filter="portraits">Photography</button>
+                <button class="filter-btn sub-filter" data-filter="spectra">Web Design</button>
+                <button class="filter-btn sub-filter" data-filter="miaf">Brand Design</button>
+                <button class="filter-btn sub-filter" data-filter="painting">Illustration</button>
+            </h2>
+        </div>
     </div>
-
-
-
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/components.js"></script>
+    <script src="./js/hover-carousel.js"></script>
+
     <script>
         // Add background to navbar when scrolling
         window.addEventListener('scroll', function () {
@@ -73,10 +80,34 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Initialize background hover carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sample carousel data - use higher quality/resolution images for background
+            const carouselImages = [
+                {
+                    src: "images/photography/portraits/1.jpg",
+                },
+                {
+                    src: "images/photography/portraits/2.jpg",
+                },
+                {
+                    src: "images/photography/portraits/3.jpg",
+                },
+                {
+                    src: "images/photography/portraits/4.jpg",
+                },
+                {
+                    src: "images/photography/portraits/5.jpg",
+                }
+            ];
+
+            // Create the background carousel
+            const bgPortfolioCarousel = createHoverCarousel('bg-portfolio-carousel', carouselImages);
+        });
     </script>
 
     <script src="js/portfolio.js"></script>
-
 </body>
 
 </html>
