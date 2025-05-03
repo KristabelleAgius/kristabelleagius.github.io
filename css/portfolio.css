@@ -1,4 +1,130 @@
-/* Portfolio Page Styles */
+/*===============================Layout===============================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #eeeae3;
+    color: #5E5648;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+
+/*===============================Fonts===============================*/
+
+/* Fromage */
+/* Fromage - Regular weight (400) */
+@font-face {
+    font-family: "fromage";
+    src: url('path/to/fromage-regular.woff2') format('woff2'),
+        url('path/to/fromage-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Fromage - Bold weight (700) */
+@font-face {
+    font-family: "fromage";
+    src: url('path/to/fromage-bold.woff2') format('woff2'),
+        url('path/to/fromage-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+/* Libertinus */
+/* Libertinus Serif Regular */
+@font-face {
+    font-family: "Libertinus Serif";
+    src: url('path/to/libertinus-serif-regular.woff2') format('woff2'),
+        url('path/to/libertinus-serif-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Libertinus Serif Bold */
+@font-face {
+    font-family: "Libertinus Serif";
+    src: url('path/to/libertinus-serif-bold.woff2') format('woff2'),
+        url('path/to/libertinus-serif-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Libertinus Serif Italic */
+@font-face {
+    font-family: "Libertinus Serif";
+    src: url('path/to/libertinus-serif-italic.woff2') format('woff2'),
+        url('path/to/libertinus-serif-italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Libertinus Serif Bold Italic */
+@font-face {
+    font-family: "Libertinus Serif";
+    src: url('path/to/libertinus-serif-bolditalic.woff2') format('woff2'),
+        url('path/to/libertinus-serif-bolditalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Libertinus Sans Regular */
+@font-face {
+    font-family: "Libertinus Sans";
+    src: url('path/to/libertinus-sans-regular.woff2') format('woff2'),
+        url('path/to/libertinus-sans-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Libertinus Sans Bold */
+@font-face {
+    font-family: "Libertinus Sans";
+    src: url('path/to/libertinus-sans-bold.woff2') format('woff2'),
+        url('path/to/libertinus-sans-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Libertinus Sans Italic */
+@font-face {
+    font-family: "Libertinus Sans";
+    src: url('path/to/libertinus-sans-italic.woff2') format('woff2'),
+        url('path/to/libertinus-sans-italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+
+
+
+
+
+
+
+/*===============================Portfolio Page===============================*/
+
+
+/* Portfolio Page */
+
 .portfolio-section {
     display: flex;
     flex-direction: column;
@@ -399,3 +525,42 @@
     background: none;
     border: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*===============================About Page===============================*/
+/* About Page */
+
+
+/*===============================Contact page===============================*/
+/* Contact Page */
