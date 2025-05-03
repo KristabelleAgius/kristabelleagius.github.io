@@ -731,6 +731,7 @@ h1 {
     transform: scale(1.03);
 }
 
+
 .about-image-column {
     flex: 0 0 28%;
 }
@@ -744,12 +745,15 @@ h1 {
     flex: 0 0 65%;
 }
 
-.about-content h2 {
-    font-size: 2.2rem;
-    font-weight: 300;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
+
+.bio-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    font-size: 17px;
 }
+
+
 
 
 
