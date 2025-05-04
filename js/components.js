@@ -3,18 +3,22 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load the navbar component
     const navComponent = document.getElementById('nav-component');
     if (navComponent) {
-        loadComponent('navbar', navComponent);
+        // Check if this is the homepage to use white text
+        const isHomepage = window.location.pathname.endsWith('index.html') ||
+            window.location.pathname.endsWith('/') ||
+            window.location.pathname.split('/').pop() === '';
+
+        loadComponent('navbar', navComponent, isHomepage);
     }
 
     // You can add more components here in the future
 });
 
 // Function to load a component into a target element
-function loadComponent(componentName, targetElement) {
+function loadComponent(componentName, targetElement, whiteText = false) {
     const components = {
         navbar: `
-
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg ${whiteText ? 'white-text-navbar' : ''}">
             <div class="container-fluid">
                 <a class="navbar-brand navbar-title" href="index.html">Kristabelle Agius</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -50,24 +54,4 @@ function loadComponent(componentName, targetElement) {
 
     // Highlight active page in navbar
     highlightActivePage();
-}
-
-// Function to highlight the active page in the navbar
-function highlightActivePage() {
-    // Get the current page filename
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-
-    // Find all nav links
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Loop through each link
-    navLinks.forEach(link => {
-        // Get the href attribute
-        const href = link.getAttribute('href');
-
-        // Check if this link matches the current page
-        if (href === currentPage) {
-            link.classList.add('active');
-        }
-    });
 }
