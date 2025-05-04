@@ -193,6 +193,12 @@ header {
 h1 {
     font-family: 'fromage', serif;
     font-weight: 700;
+    color: #5E5648;
+}
+
+h3 {
+    font-family: 'fromage', serif;
+    font-weight: 700;
     color: rgba(238, 234, 227, 0.95);
 }
 
