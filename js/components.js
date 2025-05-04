@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.pathname.endsWith('/') ||
             window.location.pathname.split('/').pop() === '';
 
+        // Pass useWhiteText parameter for homepage
         loadComponent('navbar', navComponent, isHomepage);
     }
 
@@ -15,17 +16,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Function to load a component into a target element
-function loadComponent(componentName, targetElement, whiteText = false) {
+function loadComponent(componentName, targetElement, useWhiteText = false) {
+    // Define components with their HTML markup
     const components = {
         navbar: `
-        <nav class="navbar navbar-expand-lg ${whiteText ? 'white-text-navbar' : ''}">
+        <nav class="navbar navbar-expand-lg ${useWhiteText ? 'white-text-navbar' : ''}">
             <div class="container-fluid">
                 <a class="navbar-brand navbar-title" href="index.html">Kristabelle Agius</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
@@ -54,4 +55,16 @@ function loadComponent(componentName, targetElement, whiteText = false) {
 
     // Highlight active page in navbar
     highlightActivePage();
+
+    // Add scroll event listener for navbar background change
+    if (componentName === 'navbar') {
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 }

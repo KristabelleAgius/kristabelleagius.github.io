@@ -137,12 +137,6 @@ body {
 
 
 /*===============================Home Page===============================*/
-container {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-}
-
 header {
     display: flex;
     justify-content: space-between;
@@ -267,7 +261,8 @@ h3 {
 }
 
 .navbar-nav {
-    margin-left: auto;
+    margin-right: 0.3%;
+    gap: 0%;
 }
 
 .nav-link {
@@ -327,22 +322,39 @@ h3 {
 
 
 
-
 /* White Text Navbar Styles */
+
 .white-text-navbar {
     background-color: transparent;
+    padding: 1rem 5%;
+    /* Match original navbar padding */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
 .white-text-navbar .navbar-title {
     color: rgba(238, 234, 227, 0.95);
-    font-family: 'fromage', serif;
-    font-weight: 400;
-    font-size: 25px;
-    margin-bottom: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.white-text-navbar .navbar-nav {
+    margin-right: 0%;
 }
 
 .white-text-navbar .navbar-nav .nav-link {
-    color: #ffffff;
+    color: rgba(238, 234, 227, 0.95);
+    font-size: 0.95rem;
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.8rem;
+    position: relative;
+    font-weight: 400;
+    transition: color 0.3s ease;
 }
 
 /* Update toggler icon to white for mobile */
@@ -350,12 +362,39 @@ h3 {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Update nav-link hover and active states for white text */
-.white-text-navbar .nav-link::after {
-    background-color: #ffffff;
+.white-text-navbar .navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
 }
 
-/* For scrolled state, you might want to transition back to brown */
+.white-text-navbar .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Update nav-link hover and active states for white text */
+.white-text-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    background-color: rgba(238, 234, 227, 0.95);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.white-text-navbar .nav-link:hover::after,
+.white-text-navbar .nav-link.active::after {
+    width: 80%;
+}
+
+/* For scrolled state, transition back to brown */
+.white-text-navbar.scrolled {
+    background-color: rgba(238, 234, 227, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .white-text-navbar.scrolled .navbar-title,
 .white-text-navbar.scrolled .nav-link {
     color: #5E5648;
@@ -364,6 +403,14 @@ h3 {
 .white-text-navbar.scrolled .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(94, 86, 72, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
+
+.white-text-navbar.scrolled .nav-link::after {
+    background-color: #5E5648;
+}
+
+
+
+
 
 
 
@@ -484,6 +531,52 @@ h3 {
     background-color: #fff;
     transform: scale(1.2);
 }
+
+
+
+/* Add this to your portfolio.css file */
+
+/* Position background images lower */
+.hover-carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    /* Shifts focus 30% from the top (adjust as needed) */
+    transition: transform 1.5s ease;
+}
+
+/* Alternative approach: adjust the container positioning */
+.bg-hover-carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+    /* Ensure images don't spill out */
+}
+
+/* For more specific control over specific images */
+#bg-portfolio-carousel .hover-carousel-item img {
+    object-position: center 40%;
+    /* Adjust this percentage to move images lower */
+}
+
+/* If you need to adjust the hero content position accordingly */
+.hero {
+    position: relative;
+    z-index: 5;
+    padding: 0 20px;
+    margin-top: 50px;
+    /* You can adjust this value to move content down if needed */
+}
+
+
+
+
+
 
 /* Overlay for better text readability */
 .background-overlay {
