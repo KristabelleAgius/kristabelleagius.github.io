@@ -1426,6 +1426,7 @@ textarea::placeholder {
 
     .subtitle {
         font-size: 1.4rem;
+        text-align: center;
     }
 
     .page-title {
@@ -1554,6 +1555,7 @@ textarea::placeholder {
 
     .subtitle {
         font-size: 1.2rem;
+        text-align: center;
     }
 
     .page-title {
@@ -1607,6 +1609,7 @@ textarea::placeholder {
 
     .subtitle {
         font-size: 1rem;
+        text-align: center;
     }
 
     .page-title {
