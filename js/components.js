@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
         loadComponent('navbar', navComponent, isHomepage);
     }
 
+    // Handle navbar toggler functionality
+    setupNavbarToggle();
+
     // You can add more components here in the future
 });
 
@@ -67,4 +70,65 @@ function loadComponent(componentName, targetElement, useWhiteText = false) {
             }
         });
     }
+}
+
+// Function to handle navbar toggle functionality properly in mobile view
+function setupNavbarToggle() {
+    // Wait for navbar to be loaded into the DOM
+    setTimeout(() => {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        if (navbarToggler && navbarCollapse) {
+            // Remove any Bootstrap data attributes that might interfere with our custom toggle
+            navbarToggler.removeAttribute('data-bs-toggle');
+            navbarToggler.removeAttribute('data-bs-target');
+
+            // Add our custom click event listener
+            navbarToggler.addEventListener('click', function () {
+                // Toggle the 'show' class that Bootstrap uses
+                navbarCollapse.classList.toggle('show');
+
+                // Toggle aria-expanded attribute for accessibility
+                const isExpanded = navbarCollapse.classList.contains('show');
+                navbarToggler.setAttribute('aria-expanded', isExpanded);
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                const isClickInside = navbarToggler.contains(event.target) ||
+                    navbarCollapse.contains(event.target);
+
+                // If the menu is open and the click is outside the navbar
+                if (navbarCollapse.classList.contains('show') && !isClickInside) {
+                    navbarCollapse.classList.remove('show');
+                    navbarToggler.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Close menu when clicking on a nav link
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth < 992) { // Only on mobile/tablet
+                        navbarCollapse.classList.remove('show');
+                        navbarToggler.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
+    }, 100); // Short delay to ensure navbar is loaded
+}
+
+// Function to highlight active navigation link based on current page
+function highlightActivePage() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        }
+    });
 }
