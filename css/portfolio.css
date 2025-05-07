@@ -1498,7 +1498,14 @@ textarea::placeholder {
     .photography-submenu {
         gap: 0.5rem;
         margin-bottom: 1.2rem;
+        justify-content: center;
+        /* Ensure horizontal centering */
+        flex-wrap: wrap;
+        /* Allow buttons to wrap */
+        text-align: center;
+        /* Center text within buttons */
     }
+
 
     .contact-section {
         padding: 1rem 3%;
@@ -1535,6 +1542,8 @@ textarea::placeholder {
     .filter-btn {
         padding: 0.3rem 0.8rem;
         font-size: 0.8rem;
+        text-align: center;
+        /* Ensure text is centered within button */
     }
 
     .about-container {
@@ -1599,8 +1608,25 @@ textarea::placeholder {
 }
 
 
+/* Add a specific fix for medium-sized mobile devices (400px to 575px) */
+@media (min-width: 400px) and (max-width: 575px) {
 
+    .portfolio-filter,
+    .photography-submenu {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
 
+    .filter-btn {
+        flex: 0 0 auto;
+        /* Don't grow or shrink */
+        min-width: 120px;
+        /* Minimum width for buttons */
+        text-align: center;
+        margin: 0.25rem;
+    }
+}
 
 
 /* Tiny devices (small phones, less than 400px) */
@@ -1618,14 +1644,21 @@ textarea::placeholder {
         font-size: 1.6rem;
     }
 
-    .portfolio-filter {
+    .portfolio-filter,
+    .photography-submenu {
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        /* Full width container */
     }
 
     .filter-btn {
         width: 80%;
         margin-bottom: 0.5rem;
+        text-align: center;
+        /* Ensure text is centered */
+        display: block;
+        /* Make buttons block-level for better centering */
     }
 
     .bio-section p {
