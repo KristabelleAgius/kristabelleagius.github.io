@@ -1268,38 +1268,85 @@ textarea::placeholder {
 
 /*===============================Media Queries - Responsiveness===============================*/
 
-/* Media Queries for Portfolio Page */
 @media (max-width: 992px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .contact-container {
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+        font-size: 1.6rem;
     }
 }
 
 @media (max-width: 768px) {
-    .page-title {
-        font-size: 2.5rem;
+    .contact-container {
+        flex-direction: column;
+        gap: 2rem;
     }
 
-    .filter-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.85rem;
+    .contact-info {
+        border-right: none;
+        border-bottom: 1px solid rgba(94, 86, 72, 0.1);
+        padding-right: 0;
+        padding-bottom: 2rem;
+    }
+
+    .contact-form {
+        padding-left: 0;
+        padding-top: 1rem;
+    }
+
+    .page-title {
+        margin-top: 2rem;
     }
 }
 
 @media (max-width: 576px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .contact-section {
+        padding: 1rem 3%;
     }
 
-    .portfolio-filter {
-        flex-direction: column;
-        width: 100%;
-        max-width: 280px;
+    .contact-container {
+        padding: 1.5rem;
     }
 
-    .filter-btn {
+    .contact-info h2,
+    .contact-form h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .info-item {
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    input,
+    textarea {
+        padding: 0.7rem;
+    }
+
+    .submit-btn {
         width: 100%;
-        text-align: center;
+        padding: 0.7rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .contact-container {
+        padding: 1rem;
+    }
+
+    .contact-info p {
+        margin-bottom: 1rem;
     }
 }
