@@ -1398,13 +1398,21 @@ textarea::placeholder {
 
     .portfolio-filter,
     .photography-submenu {
-        gap: 0.6rem;
-        margin-bottom: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0 10px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .filter-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.85rem;
+        margin: 0.3rem;
+        min-width: 120px;
+        /* Give buttons a consistent width */
+        text-align: center;
     }
 
     .sub-filter {
@@ -1647,19 +1655,20 @@ textarea::placeholder {
 
     .portfolio-filter,
     .photography-submenu {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        /* Full width container */
+        flex-direction: row;
+        /* Change from column to row */
+        justify-content: center;
+        width: 90%;
+        margin: 0 auto 1.5rem;
     }
 
     .filter-btn {
-        width: 80%;
-        margin-bottom: 0.5rem;
-        text-align: center;
-        /* Ensure text is centered */
-        display: block;
-        /* Make buttons block-level for better centering */
+        width: auto;
+        /* Override the 80% width */
+        min-width: 100px;
+        margin: 0.3rem;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.75rem;
     }
 
     .bio-section p {
