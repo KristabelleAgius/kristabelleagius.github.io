@@ -1267,21 +1267,175 @@ textarea::placeholder {
 
 
 /*===============================Media Queries - Responsiveness===============================*/
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
-@media (max-width: 992px) {
-    .contact-container {
+    .title {
+        font-size: 5.5rem;
+    }
+
+    .subtitle {
+        font-size: 2rem;
+    }
+}
+
+/* Large devices (desktops, 992px to 1199px) */
+@media (max-width: 1199px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .about-container {
+        gap: 3rem;
+    }
+
+    .title {
+        font-size: 4.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.8rem;
+    }
+}
+
+/* Medium devices (tablets, 768px to 991px) */
+@media (max-width: 991px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .portfolio-section,
+    .about-section,
+    .contact-section {
+        padding: 2rem 4%;
+    }
+
+    .about-container {
+        flex-direction: column;
+        align-items: center;
         gap: 2rem;
         padding: 2rem;
     }
 
-    .contact-info h2,
-    .contact-form h2 {
+    .about-image-column {
+        flex: 0 0 100%;
+    }
+
+    .about-content-column {
+        flex: 0 0 100%;
+    }
+
+    .profile-image-container {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .contact-info {
+        padding-right: 1rem;
+    }
+
+    .contact-form {
+        padding-left: 1rem;
+    }
+
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .subtitle {
         font-size: 1.6rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Navbar adjustments */
+    .navbar-nav {
+        margin-right: 0;
+    }
+
+    .nav-link {
+        margin: 0 0.3rem;
+        padding: 0.4rem 0.6rem;
     }
 }
 
-@media (max-width: 768px) {
+.contact-container {
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.contact-info h2,
+.contact-form h2 {
+    font-size: 1.6rem;
+}
+
+
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (max-width: 767px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .portfolio-section,
+    .about-section,
+    .contact-section {
+        padding: 1.5rem 3%;
+    }
+
+    .portfolio-filter,
+    .photography-submenu {
+        gap: 0.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .sub-filter {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .about-container {
+        padding: 1.5rem;
+    }
+
+    .bio-section p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .title {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        font-size: 1.4rem;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
     .contact-container {
+        padding: 1.5rem;
         flex-direction: column;
         gap: 2rem;
     }
@@ -1298,12 +1452,51 @@ textarea::placeholder {
         padding-top: 1rem;
     }
 
-    .page-title {
-        margin-top: 2rem;
+
+
+    /* Modal navigation adjustments */
+    .nav-btn {
+        font-size: 24px;
+        padding: 0 15px;
+    }
+
+    .modal-img {
+        max-width: 95%;
+    }
+
+    .image-container {
+        max-width: 90%;
+    }
+
+    /* Hero adjustments */
+    .hero {
+        height: 70vh;
     }
 }
 
-@media (max-width: 576px) {
+
+
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .portfolio-section,
+    .about-section,
+    .contact-section {
+        padding: 1rem 3%;
+    }
+
+    .portfolio-filter,
+    .photography-submenu {
+        gap: 0.5rem;
+        margin-bottom: 1.2rem;
+    }
+
     .contact-section {
         padding: 1rem 3%;
     }
@@ -1335,11 +1528,113 @@ textarea::placeholder {
         width: 100%;
         padding: 0.7rem;
     }
+
+    .filter-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .about-container {
+        padding: 1.2rem;
+    }
+
+    .profile-image {
+        width: 90%;
+    }
+
+    .bio-section p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .title {
+        font-size: 2.3rem;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+        margin-top: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Hero adjustments */
+    .hero {
+        height: 60vh;
+        padding: 0 10px;
+    }
+
+    /* Modal navigation adjustments */
+    .nav-btn {
+        font-size: 20px;
+        padding: 0 10px;
+    }
+
+    .close-modal {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+
+    .image-container {
+        max-width: 95%;
+    }
+
+    /* Navbar adjustments */
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    header {
+        padding: 1rem 3%;
+    }
 }
 
-@media (max-width: 380px) {
-    .page-title {
+
+
+
+
+
+/* Tiny devices (small phones, less than 400px) */
+@media (max-width: 399px) {
+    .title {
         font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+    }
+
+    .portfolio-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-btn {
+        width: 80%;
+        margin-bottom: 0.5rem;
+    }
+
+    .bio-section p {
+        font-size: 13px;
+    }
+
+    .about-container,
+    .contact-container {
+        padding: 1rem;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+        font-size: 1.3rem;
     }
 
     .contact-container {
@@ -1348,5 +1643,89 @@ textarea::placeholder {
 
     .contact-info p {
         margin-bottom: 1rem;
+    }
+
+    .info-item {
+        margin-bottom: 0.8rem;
+    }
+
+    .social-links {
+        gap: 0.8rem;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    input,
+    textarea,
+    .submit-btn {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Navigation enhancements for mobile */
+@media (max-width: 991px) {
+
+    /* Mobile navbar adjustments */
+    .navbar-collapse {
+        background-color: rgba(238, 234, 227, 0.98);
+        margin-top: 0.5rem;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .white-text-navbar .navbar-collapse {
+        background-color: rgba(94, 86, 72, 0.95);
+    }
+
+    .white-text-navbar.scrolled .navbar-collapse {
+        background-color: rgba(238, 234, 227, 0.98);
+    }
+
+    .nav-link {
+        padding: 0.5rem 0;
+        margin: 0.2rem 0;
+    }
+
+    .nav-link::after {
+        bottom: -2px;
+    }
+
+    /* White text navbar specific fixes */
+    .white-text-navbar .nav-link {
+        color: rgba(238, 234, 227, 0.95);
+    }
+
+    .white-text-navbar.scrolled .nav-link {
+        color: #5E5648;
+    }
+}
+
+/* Portfolio hover effect adjustments for touch devices */
+@media (hover: none) {
+    .portfolio-item .overlay {
+        opacity: 0.8;
+        background-color: rgba(94, 86, 72, 0.7);
+    }
+
+    .portfolio-item .overlay-content {
+        transform: translateY(0);
+    }
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        height: -webkit-fill-available;
+        min-height: 500px;
+    }
+
+    .bg-hover-carousel-container {
+        height: -webkit-fill-available;
+        min-height: 500px;
     }
 }
