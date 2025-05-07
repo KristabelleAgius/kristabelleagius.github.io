@@ -121,7 +121,7 @@ body {
 .page-title {
     font-size: 3rem;
     font-weight: 300;
-    margin-top: 3rem;
+    margin-top: 7%;
     margin-bottom: 2rem;
     text-align: center;
     letter-spacing: 2px;
@@ -1558,7 +1558,7 @@ textarea::placeholder {
 
     .page-title {
         font-size: 1.8rem;
-        margin-top: 1.2rem;
+        margin-top: 10%;
         margin-bottom: 1rem;
     }
 
