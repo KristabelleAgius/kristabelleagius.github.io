@@ -1626,7 +1626,17 @@ textarea::placeholder {
         text-align: center;
         margin: 0.25rem;
     }
+
+    .filter-btn {
+        flex: 0 0 auto;
+        /* Don't grow or shrink */
+        min-width: 120px;
+        /* Minimum width for buttons */
+        text-align: center;
+        margin: 0.25rem;
+    }
 }
+
 
 
 /* Tiny devices (small phones, less than 400px) */
