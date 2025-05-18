@@ -192,9 +192,16 @@ h1 {
 h3 {
     font-family: 'fromage', serif;
     font-weight: 700;
-    color: rgba(238, 234, 227, 0.95);
+    color: #5E5648;
 }
 
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    /* This matches the imported Google Font used in the page */
+    font-weight: 300;
+    font-size: 20px;
+    color: #5E5648;
+}
 
 .navbar-nav .nav-link {
     color: #5E5648;
