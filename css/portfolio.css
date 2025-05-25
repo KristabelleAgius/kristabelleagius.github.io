@@ -156,6 +156,8 @@ header {
 }
 
 
+
+
 .hero h2 {
     font-size: 28px;
     text-align: center;
@@ -236,6 +238,8 @@ h4 {
     font-weight: 300;
     margin-bottom: 1rem;
     letter-spacing: 4px;
+    color: rgba(238, 234, 227, 0.95);
+    ;
 }
 
 .subtitle {
