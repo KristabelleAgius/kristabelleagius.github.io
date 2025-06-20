@@ -37,7 +37,7 @@ function loadComponent(componentName, targetElement, useWhiteText = false) {
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="abstract.html">Portfolio</a>
+                            <a class="nav-link" href="portrait.html">Portfolio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
