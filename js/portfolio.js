@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Photography subcategories
             if (category === 'photography') {
-                if (['portraits', 'animals', 'street', 'abstract', 'speed'].includes(subFilter)) {
+                if (['portraits', 'animals', 'street', 'abstract', 'speed', 'events'].includes(subFilter)) {
                     btn.style.display = 'inline-block';
                 } else {
                     btn.style.display = 'none';
@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'street': 'street.html',
                 'abstract': 'abstract.html',
                 'speed': 'speed.html',
+                'events': 'events.html',
 
                 // Website pages
                 'spectra': 'spectra.html',
