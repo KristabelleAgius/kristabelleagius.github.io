@@ -113,6 +113,10 @@
     transform: translateY(-2px);
 }
 
+
+
+
+
 /* Responsive design */
 @media (max-width: 768px) {
     .hero .title {
