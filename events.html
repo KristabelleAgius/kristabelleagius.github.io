@@ -34,6 +34,56 @@
 
     <!-- Font -->
     <link rel="stylesheet" href="https://use.typekit.net/wck4osq.css">
+
+    <style>
+        /* Additional styles for the sub-sub menu */
+        .events-submenu {
+            display: none;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .events-submenu.show {
+            display: flex;
+        }
+
+        .events-filter-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .events-filter-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .events-filter-btn.active {
+            background-color: #fff;
+            color: #333;
+            border-color: #fff;
+        }
+
+        /* Hide portfolio items by default */
+        .portfolio-item {
+            display: none;
+        }
+
+        .portfolio-item.show {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -62,93 +112,308 @@
                 <button class="filter-btn sub-filter active" data-filter="events">Events</button>
             </div>
 
-            <!-- Events-->
+            <!-- Events sub-submenu -->
+            <div class="events-submenushow">
+                <button class="events-filter-btn active" data-event-filter="scandalous">Scandalous</button>
+                <button class="events-filter-btn" data-event-filter="international-fashion">International Fashion
+                    Show 2025</button>
+            </div>
+
+            <!-- Portfolio Grid -->
             <div class="portfolio-grid">
-                <div class="portfolio-item photography portraits">
+                <!-- Scandalous Event Images -->
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/1.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/1.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/2.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/2.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/3.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/3.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/4.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/4.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/5.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/5.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/7.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/7.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/8.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/8.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/11.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/11.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/6.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/6.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/9.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/9.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/10.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/10.jpg" alt="scandalous event">
                     </div>
                 </div>
 
-
-                <div class="portfolio-item photography portraits">
+                <div class="portfolio-item photography events scandalous show">
                     <div class="portfolio-image">
-                        <img src="images/photography/events/scandalous/12.jpg" alt="event">
+                        <img src="images/photography/events/scandalous/12.jpg" alt="scandalous event">
                     </div>
                 </div>
 
+                <!-- International Fashion Show Images (placeholder structure) -->
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/1.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/2.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/3.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/4.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/5.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/6.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/7.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/8.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/9.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/10.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/11.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/12.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/13.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/14.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/15.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/16.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/17.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/18.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/19.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/20.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/21.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/22.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/23.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/24.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/25.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/26.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/27.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/28.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/28.2.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/29.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/30.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/31.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/32.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/33.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/34.jpg" alt="international fashion show">
+                    </div>
+                </div>
+
+                <div class="portfolio-item photography events international-fashion">
+                    <div class="portfolio-image">
+                        <img src="images/photography/events/fashionshow/35.jpg" alt="international fashion show">
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
-
-
-
-
-
-
 
     <!-- Lightbox container -->
     <div id="imageModal" class="image-modal">
@@ -187,7 +452,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             const mainFilterButtons = document.querySelectorAll('.main-filter');
             const subFilterButtons = document.querySelectorAll('.sub-filter');
+            const eventsFilterButtons = document.querySelectorAll('.events-filter-btn');
             const photographySubmenu = document.querySelector('.photography-submenu');
+            const eventsSubmenu = document.querySelector('.events-submenu');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
 
             // Make sure the correct submenu is visible
             const activeMainFilter = document.querySelector('.main-filter.active');
@@ -201,7 +469,13 @@
                 }
             }
 
-            // Main filter button click event - NO ALERTS, direct navigation instead
+            // Check if events is active to show events submenu
+            const activeSubFilter = document.querySelector('.sub-filter.active');
+            if (activeSubFilter && activeSubFilter.getAttribute('data-filter') === 'events') {
+                eventsSubmenu.classList.add('show');
+            }
+
+            // Main filter button click event
             mainFilterButtons.forEach(button => {
                 button.addEventListener('click', function () {
                     const filter = this.getAttribute('data-filter');
@@ -221,49 +495,70 @@
                 });
             });
 
-            // Sub filter button click event - navigate to different HTML files
+            // Sub filter button click event
             subFilterButtons.forEach(button => {
                 button.addEventListener('click', function () {
                     const subFilter = this.getAttribute('data-filter');
 
-                    // Map all subcategories to their corresponding HTML files
-                    const pageMap = {
-                        // Photography pages
-                        'portraits': 'portrait.html',
-                        'animals': 'animals.html',
-                        'street': 'street.html',
-                        'abstract': 'abstract.html',
-                        'speed': 'speed.html',
-                        'events': 'events.html',
+                    // Remove active class from all sub filters
+                    subFilterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
 
-                        // Website pages
-                        'spectra': 'spectra.html',
-                        'novabfa': 'novabfa.html',
+                    // Show/hide events submenu
+                    if (subFilter === 'events') {
+                        eventsSubmenu.classList.add('show');
+                        // Show default event category (scandalous)
+                        showEventCategory('scandalous');
+                    } else {
+                        eventsSubmenu.classList.remove('show');
+                        // Navigate to other photography pages
+                        const pageMap = {
+                            'portraits': 'portrait.html',
+                            'animals': 'animals.html',
+                            'street': 'street.html',
+                            'abstract': 'abstract.html',
+                            'speed': 'speed.html'
+                        };
 
-                        // Branding pages
-                        'miaf': 'miaf.html',
-                        'kulravjul': 'kulravjul.html',
-                        'bookcover': 'bookcover.html',
-                        'boardgame': 'boardgame.html',
-
-                        // Illustration pages
-                        'painting': 'painting.html',
-                        'drawing': 'drawing.html',
-                        'sketches': 'sketches.html',
-                        'vector': 'vector.html',
-                        'digital': 'digital.html',
-
-                        // Dissertation pages
-                        'magazinebook': 'magazinebook.html',
-                        'posters': 'posters.html',
-                        'giveaway': 'giveaway.html'
-                    };
-
-                    if (pageMap[subFilter]) {
-                        window.location.href = pageMap[subFilter];
+                        if (pageMap[subFilter]) {
+                            window.location.href = pageMap[subFilter];
+                        }
                     }
                 });
             });
+
+            // Events sub-sub filter button click event
+            eventsFilterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const eventFilter = this.getAttribute('data-event-filter');
+
+                    // Remove active class from all events filter buttons
+                    eventsFilterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Show corresponding event category
+                    showEventCategory(eventFilter);
+                });
+            });
+
+            // Function to show specific event category
+            function showEventCategory(category) {
+                // Hide all portfolio items
+                portfolioItems.forEach(item => {
+                    item.classList.remove('show');
+                });
+
+                // Show only items matching the selected event category
+                const categoryItems = document.querySelectorAll(`.portfolio-item.${category}`);
+                categoryItems.forEach(item => {
+                    item.classList.add('show');
+                });
+            }
+
+            // Initialize with scandalous event visible
+            showEventCategory('scandalous');
         });
     </script>
 </body>
