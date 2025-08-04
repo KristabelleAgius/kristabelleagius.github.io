@@ -31,14 +31,151 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/portfolio.css">
-    <!-- Background hover carousel CSS -->
-    <link rel="stylesheet" href="css/hover-carousel-bg.css">
+    <link rel="stylesheet" href="css/home.css">
 
     <!-- Fromage Font -->
     <link rel="stylesheet" href="https://use.typekit.net/wck4osq.css">
 
     <!-- Libertinus Font -->
     <link href="https://cdn.jsdelivr.net/gh/alerque/libertinus@v7.040/libertinus-webfonts.css" rel="stylesheet">
+
+    <style>
+        /* Inline carousel styles for immediate functionality */
+        .home-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .bg-hover-carousel-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .carousel-images-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 0.3;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero .title {
+            font-size: 5.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 4px;
+            color: #5E5648;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        .hero .subtitle {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #5E5648;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .hero .subtitle a {
+            color: #5E5648;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero .subtitle a:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* White text navbar for homepage */
+        .white-text-navbar .navbar-brand,
+        .white-text-navbar .nav-link {
+            color: #5E5648 !important;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .white-text-navbar.scrolled {
+            background-color: rgba(238, 234, 227, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero .title {
+                font-size: 4rem;
+                letter-spacing: 2px;
+            }
+
+            .hero .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .hero .subtitle a {
+                margin: 0.25rem;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero .title {
+                font-size: 3rem;
+                letter-spacing: 1px;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero .subtitle a {
+                display: block;
+                margin: 0.5rem auto;
+                width: fit-content;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -74,9 +211,6 @@
         <!-- Background Carousel -->
         <div class="bg-hover-carousel-container" id="bg-portfolio-carousel"></div>
 
-        <!-- Semi-transparent overlay for better text visibility
-        <div class="background-overlay"></div> -->
-
         <!-- Hero Content (above the background) -->
         <div class="hero">
             <h3 class="title">Kristabelle Agius</h3>
@@ -93,9 +227,74 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/components.js"></script>
-    <script src="./js/hover-carousel.js"></script>
 
+    <!-- Inline Carousel JavaScript -->
     <script>
+        // Carousel implementation
+        function createHoverCarousel(containerId, images) {
+            const container = document.getElementById(containerId);
+            if (!container || !images || images.length === 0) {
+                console.error('Carousel container not found or no images provided');
+                return null;
+            }
+
+            let currentIndex = 0;
+            let intervalId = null;
+            const transitionDuration = 1000;
+            const displayDuration = 3000;
+
+            // Create carousel structure
+            container.innerHTML = `
+                <div class="carousel-images-container">
+                    ${images.map((img, index) => `
+                        <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
+                            <img src="${img.src}" alt="Carousel image ${index + 1}" onerror="console.error('Failed to load image: ${img.src}')" />
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            const slides = container.querySelectorAll('.carousel-slide');
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                if (slides[index]) {
+                    slides[index].classList.add('active');
+                }
+                currentIndex = index;
+            }
+
+            function nextSlide() {
+                const nextIndex = (currentIndex + 1) % images.length;
+                showSlide(nextIndex);
+            }
+
+            function startSlideshow() {
+                intervalId = setInterval(nextSlide, displayDuration);
+            }
+
+            function stopSlideshow() {
+                if (intervalId) {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                }
+            }
+
+            container.addEventListener('mouseenter', stopSlideshow);
+            container.addEventListener('mouseleave', startSlideshow);
+
+            startSlideshow();
+
+            return {
+                showSlide,
+                nextSlide,
+                start: startSlideshow,
+                stop: stopSlideshow,
+                getCurrentIndex: () => currentIndex,
+                getSlideCount: () => images.length
+            };
+        }
+
         // Add background to navbar when scrolling
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
@@ -108,7 +307,7 @@
 
         // Initialize background hover carousel when DOM is loaded
         document.addEventListener('DOMContentLoaded', function () {
-            // Sample carousel data - use higher quality/resolution images for background
+            // Sample carousel data - make sure these image paths are correct
             const carouselImages = [
                 {
                     src: "images/photography/portraits/1.jpg",
@@ -129,6 +328,10 @@
 
             // Create the background carousel
             const bgPortfolioCarousel = createHoverCarousel('bg-portfolio-carousel', carouselImages);
+
+            // Log for debugging
+            console.log('Carousel initialized:', bgPortfolioCarousel);
+            console.log('Image paths:', carouselImages.map(img => img.src));
         });
     </script>
 

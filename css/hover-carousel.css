@@ -1,0 +1,149 @@
+/* hover-carousel-bg.css - Background Carousel Styles */
+
+/* Home container with full height */
+.home-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background carousel container */
+.bg-hover-carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Behind other content */
+}
+
+/* Carousel images container */
+.carousel-images-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Individual carousel slides */
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Active slide */
+.carousel-slide.active {
+    opacity: 0.3;
+    /* Semi-transparent so text is readable */
+}
+
+/* Carousel images */
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Optional: Background overlay for better text readability */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(238, 234, 227, 0.4);
+    /* Semi-transparent overlay */
+    z-index: 0;
+}
+
+/* Hero content positioning */
+.hero {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+/* Title styling */
+.hero .title {
+    font-size: 5.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: 4px;
+    color: #5E5648;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Subtitle styling */
+.hero .subtitle {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #5E5648;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Filter button styling */
+.hero .subtitle a {
+    color: #5E5648;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.hero .subtitle a:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero .title {
+        font-size: 4rem;
+        letter-spacing: 2px;
+    }
+
+    .hero .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .hero .subtitle a {
+        margin: 0.25rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero .title {
+        font-size: 3rem;
+        letter-spacing: 1px;
+    }
+
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero .subtitle a {
+        display: block;
+        margin: 0.5rem auto;
+        width: fit-content;
+    }
+}
