@@ -12,8 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-
-
 /*===============================Fonts===============================*/
 
 /* Fromage */
@@ -36,8 +34,6 @@ body {
     font-style: normal;
     font-display: swap;
 }
-
-
 
 /* Libertinus */
 /* Libertinus Serif Regular */
@@ -110,12 +106,6 @@ body {
     font-display: swap;
 }
 
-
-
-
-
-
-
 /*===============================All Pages===============================*/
 
 .page-title {
@@ -126,15 +116,6 @@ body {
     text-align: center;
     letter-spacing: 2px;
 }
-
-
-
-
-
-
-
-
-
 
 /*===============================Home Page===============================*/
 header {
@@ -148,15 +129,9 @@ header {
 
 .hero .subtitle a {
     color: #5E5648;
-    /* Makes the text brown */
     text-decoration: none;
-    /* Removes the underline */
     font-weight: 500;
-    /* Optional: makes it stand out a bit */
 }
-
-
-
 
 .hero h2 {
     font-size: 28px;
@@ -171,7 +146,6 @@ header {
 .logo img {
     height: 30px;
 }
-
 
 /* Navbar Styles */
 .custom-navbar {
@@ -199,7 +173,6 @@ h3 {
 
 h4 {
     font-family: 'Montserrat', sans-serif;
-    /* This matches the imported Google Font used in the page */
     font-weight: 300;
     font-size: 20px;
     color: #5E5648;
@@ -221,7 +194,6 @@ h4 {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(94, 86, 72, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-
 .hero {
     display: flex;
     flex-direction: column;
@@ -239,14 +211,12 @@ h4 {
     margin-bottom: 1rem;
     letter-spacing: 4px;
     color: rgba(238, 234, 227, 0.95);
-    ;
 }
 
 .subtitle {
     font-size: 2rem;
     font-weight: 300;
 }
-
 
 .navbar {
     background-color: transparent;

@@ -1,85 +1,36 @@
+// Events page specific JavaScript
 document.addEventListener('DOMContentLoaded', function () {
     const mainFilterButtons = document.querySelectorAll('.main-filter');
     const subFilterButtons = document.querySelectorAll('.sub-filter');
+    const eventsFilterButtons = document.querySelectorAll('.events-filter-btn');
     const photographySubmenu = document.querySelector('.photography-submenu');
+    const eventsSubmenu = document.querySelector('.events-submenu');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-    // Function to show submenu for a specific category
-    function showSubmenuForCategory(category) {
-        // Show the submenu for categories that have submenus
-        if (photographySubmenu) {
-            if (['photography', 'website', 'branding', 'illustration', 'dissertation'].includes(category)) {
-                photographySubmenu.style.display = 'flex';
-            } else {
-                photographySubmenu.style.display = 'none';
-            }
-        }
-
-        // Update submenu buttons based on category
-        subFilterButtons.forEach(btn => {
-            const subFilter = btn.getAttribute('data-filter');
-
-            // Photography subcategories
-            if (category === 'photography') {
-                if (['portraits', 'animals', 'street', 'abstract', 'speed', 'events'].includes(subFilter)) {
-                    btn.style.display = 'inline-block';
-                } else {
-                    btn.style.display = 'none';
-                }
-            }
-            // Website subcategories
-            else if (category === 'website') {
-                if (['spectra', 'novabfa'].includes(subFilter)) {
-                    btn.style.display = 'inline-block';
-                } else {
-                    btn.style.display = 'none';
-                }
-            }
-            // Branding subcategories
-            else if (category === 'branding') {
-                if (['miaf', 'kulravjul', 'bookcover', 'boardgame'].includes(subFilter)) {
-                    btn.style.display = 'inline-block';
-                } else {
-                    btn.style.display = 'none';
-                }
-            }
-            // Illustration subcategories
-            else if (category === 'illustration') {
-                if (['painting', 'drawing', 'sketches', 'vector', 'digital'].includes(subFilter)) {
-                    btn.style.display = 'inline-block';
-                } else {
-                    btn.style.display = 'none';
-                }
-            }
-            // Dissertation subcategories
-            else if (category === 'dissertation') {
-                if (['magazine book', 'posters', 'giveaway'].includes(subFilter)) {
-                    btn.style.display = 'inline-block';
-                } else {
-                    btn.style.display = 'none';
-                }
-            }
-        });
-    }
-
-    // Initialize the correct submenu on page load
+    // Make sure the correct submenu is visible on page load
     const activeMainFilter = document.querySelector('.main-filter.active');
     if (activeMainFilter) {
         const activeCategory = activeMainFilter.getAttribute('data-filter');
-        showSubmenuForCategory(activeCategory);
+        if (activeCategory === 'photography' || activeCategory === 'website' ||
+            activeCategory === 'branding' || activeCategory === 'illustration') {
+            photographySubmenu.style.display = 'flex';
+        } else {
+            photographySubmenu.style.display = 'none';
+        }
+    }
+
+    // Check if events is active to show events submenu
+    const activeSubFilter = document.querySelector('.sub-filter.active');
+    if (activeSubFilter && activeSubFilter.getAttribute('data-filter') === 'events') {
+        if (eventsSubmenu) {
+            eventsSubmenu.classList.add('show');
+        }
     }
 
     // Main filter button click event
     mainFilterButtons.forEach(button => {
         button.addEventListener('click', function () {
             const filter = this.getAttribute('data-filter');
-
-            // Remove active class from all main filters
-            mainFilterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-
-            // Show appropriate submenu
-            showSubmenuForCategory(filter);
 
             // Navigate to default page for each main category
             const mainPageMap = {
@@ -106,43 +57,68 @@ document.addEventListener('DOMContentLoaded', function () {
             // Add active class to clicked button
             this.classList.add('active');
 
-            // Map all subcategories to their corresponding HTML files
-            const pageMap = {
-                // Photography pages
-                'portraits': 'portrait.html',
-                'animals': 'animals.html',
-                'street': 'street.html',
-                'abstract': 'abstract.html',
-                'speed': 'speed.html',
-                'events': 'events.html',
+            // Show/hide events submenu
+            if (subFilter === 'events') {
+                if (eventsSubmenu) {
+                    eventsSubmenu.classList.add('show');
+                }
+                // Show default event category (scandalous)
+                showEventCategory('scandalous');
+                // Reset events filter buttons to default state
+                eventsFilterButtons.forEach(btn => btn.classList.remove('active'));
+                const scandalousBtn = document.querySelector('[data-event-filter="scandalous"]');
+                if (scandalousBtn) {
+                    scandalousBtn.classList.add('active');
+                }
+            } else {
+                if (eventsSubmenu) {
+                    eventsSubmenu.classList.remove('show');
+                }
+                // Navigate to other photography pages
+                const pageMap = {
+                    'portraits': 'portrait.html',
+                    'animals': 'animals.html',
+                    'street': 'street.html',
+                    'abstract': 'abstract.html',
+                    'speed': 'speed.html'
+                };
 
-                // Website pages
-                'spectra': 'spectra.html',
-                'novabfa': 'novabfa.html',
-
-                // Branding pages
-                'miaf': 'miaf.html',
-                'kulravjul': 'kulravjul.html',
-                'bookcover': 'bookcover.html',
-                'boardgame': 'boardgame.html',
-
-                // Illustration pages
-                'painting': 'painting.html',
-                'drawing': 'drawing.html',
-                'sketches': 'sketches.html',
-                'vector': 'vector.html',
-                'digital': 'digital.html',
-
-                // Dissertation pages
-                'magazine book': 'magazinebook.html',
-                'posters': 'posters.html',
-                'giveaway': 'giveaway.html'
-
-            };
-
-            if (pageMap[subFilter]) {
-                window.location.href = pageMap[subFilter];
+                if (pageMap[subFilter]) {
+                    window.location.href = pageMap[subFilter];
+                }
             }
         });
     });
+
+    // Events sub-sub filter button click event (FIXED FOR TOGGLE FUNCTIONALITY)
+    eventsFilterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const eventFilter = this.getAttribute('data-event-filter');
+
+            // Remove active class from all events filter buttons
+            eventsFilterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Show corresponding event category
+            showEventCategory(eventFilter);
+        });
+    });
+
+    // Function to show specific event category
+    function showEventCategory(category) {
+        // Hide all portfolio items first
+        portfolioItems.forEach(item => {
+            item.classList.remove('show');
+        });
+
+        // Show only items matching the selected event category
+        const categoryItems = document.querySelectorAll(`.portfolio-item.${category}`);
+        categoryItems.forEach(item => {
+            item.classList.add('show');
+        });
+    }
+
+    // Initialize with scandalous event visible on page load
+    showEventCategory('scandalous');
 });
