@@ -288,21 +288,6 @@ h4 {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* White Text Navbar Styles */
 
 .white-text-navbar {
@@ -388,6 +373,243 @@ h4 {
 .white-text-navbar.scrolled .nav-link::after {
     background-color: #5E5648;
 }
+
+
+
+
+
+
+
+/* Portfolio Video Styles */
+.portfolio-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for videos */
+.portfolio-item:hover .portfolio-video {
+    transform: scale(1.02);
+}
+
+/* Custom video controls styling */
+.portfolio-video::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.portfolio-video::-webkit-media-controls-play-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+/* Ensure videos maintain aspect ratio in grid */
+.portfolio-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f5f5f5;
+}
+
+/* Loading state for videos */
+.portfolio-video:not([data-loaded]) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .portfolio-video {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .portfolio-item:hover .portfolio-video {
+        transform: none;
+        /* Disable hover effects on mobile */
+    }
+}
+
+/* Optional: Play button overlay for videos without autoplay */
+.portfolio-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.portfolio-image::after {
+    content: '▶';
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.portfolio-video:not([controls]):hover+.portfolio-image::before,
+.portfolio-video:not([controls]):hover+.portfolio-image::after {
+    opacity: 1;
+}
+
+
+
+/* Multimedia Design specific styles */
+
+.multimedia-submenu {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.events-filter-btn {
+    padding: 10px 20px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    color: #6c757d;
+}
+
+.events-filter-btn:hover {
+    background: #e9ecef;
+    border-color: #dee2e6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.events-filter-btn.active {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    border-color: #0056b3;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.events-filter-btn.active:hover {
+    background: linear-gradient(45deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Portfolio item visibility controls */
+.portfolio-item {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.portfolio-item.show {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Video specific styling */
+.portfolio-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-video:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Portfolio image container adjustments for videos */
+.portfolio-image {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+    background: #f8f9fa;
+}
+
+.portfolio-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+/* Grid adjustments for multimedia content */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .multimedia-submenu {
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .events-filter-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-filter-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
+
 
 
 
