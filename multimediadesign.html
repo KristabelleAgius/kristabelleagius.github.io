@@ -31,16 +31,17 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/fullscreen-video.css">
 
     <!-- Font -->
     <link rel="stylesheet" href="https://use.typekit.net/wck4osq.css">
 </head>
 
-<body>
+<body class="multimedia-page">
     <!-- Navbar -->
     <div id="nav-component"></div>
 
-    <div class="container">
+    <div class="multimedia-container">
         <div class="portfolio-section">
             <h1 class="page-title">Portfolio</h1>
 
@@ -60,19 +61,32 @@
             </div>
 
             <!-- Portfolio Grid -->
-            <div class="portfolio-grid">
+            <div class="portfolio-grid multimedia-portfolio-grid">
 
                 <!-- 3d fruit bowl -->
                 <div class="portfolio-item photography portraits">
                     <div class="portfolio-image">
-                        <video class="portfolio-video" controls muted loop>
+                        <button class="expand-btn" onclick="expandVideoInContainer(this)">
+                            <i class="bi bi-arrows-angle-expand"></i> Expand
+                        </button>
+                        <video class="portfolio-video" controls muted loop onclick="expandVideoInContainer(this)">
                             <source src="images/multimedia/fruitbowl.mp4" type="video/mp4">
-
                         </video>
                     </div>
                 </div>
 
             </div>
+        </div>
+    </div>
+
+    <!-- Video Modal (kept for potential future use) -->
+    <div id="videoModal" class="video-modal" style="display: none;">
+        <div class="video-modal-content">
+            <button class="close-video-modal" onclick="closeVideoModal()">&times;</button>
+            <video id="modalVideo" class="modal-video" controls autoplay>
+                <source id="modalVideoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
 
@@ -100,6 +114,7 @@
     <script src="js/lightbox.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/events.js"></script>
+    <script src="js/fullscreen-video.js"></script>
 </body>
 
 </html>
