@@ -5,17 +5,28 @@ document.addEventListener('DOMContentLoaded', function () {
     const eventsFilterButtons = document.querySelectorAll('.events-filter-btn');
     const photographySubmenu = document.querySelector('.photography-submenu');
     const eventsSubmenu = document.querySelector('.events-submenu, .events-submenushow');
+    const multimediaSubmenu = document.querySelector('.multimedia-submenu');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
 
     // Make sure the correct submenu is visible on page load
     const activeMainFilter = document.querySelector('.main-filter.active');
     if (activeMainFilter) {
         const activeCategory = activeMainFilter.getAttribute('data-filter');
+        const buttonText = activeMainFilter.textContent.trim();
+
         if (activeCategory === 'photography' || activeCategory === 'website' ||
             activeCategory === 'branding' || activeCategory === 'illustration') {
-            photographySubmenu.style.display = 'flex';
+            if (photographySubmenu) photographySubmenu.style.display = 'flex';
+            if (multimediaSubmenu) multimediaSubmenu.style.display = 'none';
+        } else if (activeCategory === 'dissertation' && buttonText !== 'Multimedia') {
+            if (photographySubmenu) photographySubmenu.style.display = 'none';
+            if (multimediaSubmenu) multimediaSubmenu.style.display = 'none';
+        } else if (buttonText === 'Multimedia') {
+            if (photographySubmenu) photographySubmenu.style.display = 'none';
+            if (multimediaSubmenu) multimediaSubmenu.style.display = 'flex';
         } else {
-            photographySubmenu.style.display = 'none';
+            if (photographySubmenu) photographySubmenu.style.display = 'none';
+            if (multimediaSubmenu) multimediaSubmenu.style.display = 'none';
         }
     }
 
@@ -31,6 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
     mainFilterButtons.forEach(button => {
         button.addEventListener('click', function () {
             const filter = this.getAttribute('data-filter');
+            const buttonText = this.textContent.trim();
+
+            // Remove active class from all main filter buttons
+            mainFilterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
 
             // Navigate to default page for each main category
             const mainPageMap = {
@@ -41,7 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 'dissertation': 'magazinebook.html'
             };
 
-            if (mainPageMap[filter]) {
+            // Handle Multimedia button specifically (since it has different data-filter)
+            if (buttonText === 'Multimedia') {
+                window.location.href = 'multimediadesign.html';
+            } else if (mainPageMap[filter]) {
                 window.location.href = mainPageMap[filter];
             }
         });
@@ -74,7 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     'animals': 'animals.html',
                     'street': 'street.html',
                     'abstract': 'abstract.html',
-                    'speed': 'speed.html'
+                    'speed': 'speed.html',
+                    // Dissertation pages
+                    'magazine book': 'magazinebook.html',
+                    'posters': 'posters.html',
+                    'giveaway': 'giveaway.html'
                 };
 
                 if (pageMap[subFilter]) {
@@ -84,15 +108,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Events sub-sub filter button click event with navigation
+    // Events sub-sub filter button click event with navigation (includes multimedia buttons)
     eventsFilterButtons.forEach(button => {
         button.addEventListener('click', function () {
             const eventFilter = this.getAttribute('data-event-filter');
 
-            // Navigate to the corresponding event page
+            // Remove active class from all events filter buttons
+            eventsFilterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Navigate to the corresponding event or multimedia page
             const eventPageMap = {
+                // Events pages
                 'scandalous': 'scandalous.html',
-                'international-fashion': 'fashionshow.html'
+                'international-fashion': 'fashionshow.html',
+                // Multimedia pages
+                '3d modelling': 'multimediadesign.html',
+                'videoediting': 'video_editing.html'
             };
 
             if (eventPageMap[eventFilter]) {
