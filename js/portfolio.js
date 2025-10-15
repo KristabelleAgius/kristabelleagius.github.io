@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'scandalous': 'scandalous.html',
                 'international-fashion': 'fashionshow.html',
                 'science-in-the-city': 'scienceinthecity.html',
+                'contours-of-being': 'contoursofbeing.html',
                 // Multimedia pages
                 '3d modelling': 'multimediadesign.html',
                 'videoediting': 'video_editing.html'
@@ -158,5 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showEventCategory('international-fashion');
     } else if (currentPage === 'scienceinthecity.html') {
         showEventCategory('science-in-the-city');
+    } else if (currentPage === 'contoursofbeing.html') {
+        showEventCategory('contours-of-being');
     }
 });
