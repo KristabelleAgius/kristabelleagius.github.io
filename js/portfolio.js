@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Events pages
                 'scandalous': 'scandalous.html',
                 'international-fashion': 'fashionshow.html',
+                'science in the city': 'scienceinthecity',
                 // Multimedia pages
                 '3d modelling': 'multimediadesign.html',
                 'videoediting': 'video_editing.html'
@@ -155,5 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showEventCategory('scandalous');
     } else if (currentPage === 'fashionshow.html') {
         showEventCategory('international-fashion');
+    } else if (currentPage === 'scienceinthecity.html') {
+        showEventCategory('science-in-the-city');
     }
 });
