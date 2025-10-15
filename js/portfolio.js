@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Events pages
                 'scandalous': 'scandalous.html',
                 'international-fashion': 'fashionshow.html',
-                'science in the city': 'scienceinthecity',
+                'science in the city': 'scienceinthecity.html',
                 // Multimedia pages
                 '3d modelling': 'multimediadesign.html',
                 'videoediting': 'video_editing.html'
